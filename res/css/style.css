@@ -6,31 +6,49 @@ body {
     background-color: black;
     position: relative;
     margin: 0 auto;
-    width: 200px;
-    height: 400px;
+    width: 300px;
+    height: 500px;
     display: none;
+    top: 200px;
 }
 #doorRight {
     background-color: black;
     position: relative;
     margin: 0 auto;
-    width: 200px;
-    height: 600px;
+    width: 300px;
+    height: 500px;
     display: none;
+    top: 200px;
 }
 #moveLeft{
     background-color: lightgray;
-    width: 50px;
+    width: 100px;
     height: 600px;
     left: 0px;
     position: absolute;
+    top: 200px;
+    border: 3px solid black;
+    opacity: 0.5;
 }
 #moveRight{
     background-color: lightgray;
-    width: 50px;
+    width: 100px;
     height: 600px;
     right: 0px;
     position: absolute;
+    top: 200px;
+    border: 3px solid black;
+    opacity: 0.5;
+}
+#cam {
+    background-color: lightgray;
+    position: relative;
+    margin: 0 auto;
+    width: 600px;
+    height: 100px;
+    top: 0px;
+    border: 3px solid black;
+    opacity: 0.5;
 }
 #mapImage{
     display: none;
