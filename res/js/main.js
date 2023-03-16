@@ -7,6 +7,7 @@ const moveLeft = document.getElementById("moveLeft");
 const moveRight = document.getElementById("moveRight");
 
 const camera = document.getElementById("camera");
+const cam = document.getElementById("cam");
 
 let posA = 4;
 let posB = 5;
@@ -19,30 +20,50 @@ function virus
 }
 
 //player movement
+
+
+let loc = 4;
 function moveL() {
-    location--;
-    if(location==3){
+    loc--;
+    if(loc==3){
         doorLeft.style.display = "block";
         moveLeft.style.display = "none";
+        cam.style.display = "none";
+        
     }
-    if(location==4){
+    if(loc==4){
         doorLeft.style.display = "none";
         doorRight.style.display = "none";
+        moveRight.style.display = "block";
+        moveLeft.style.display = "block";
+        cam.style.display = "block";
     }
 }
 function moveR() {
-    location++;
-    if(location==5){
+    loc++;
+    if(loc==5){
         doorRight.style.display = "block";
-        moveRight.style.display = "none";    
+        moveRight.style.display = "none";
+        cam.style.display = "none";
     }
-    if(location==4){
+    if(loc==4){
         doorRight.style.display = "none";
         doorLeft.style.display = "none";
-        virus();
+        moveRight.style.display = "block";
+        moveLeft.style.display = "block";
+        cam.style.display = "block";
         
     }
     
+}
+
+function cams(){
+    doorLeft.style.display = "none";
+        doorRight.style.display = "none";
+        moveRight.style.display = "none";
+        moveLeft.style.display = "none";
+        cam.style.display = "none";
+        document.body.style.backgroundColor = "steelblue";
 }
 
 moveLeft.onmouseover = () => {
@@ -51,6 +72,10 @@ moveLeft.onmouseover = () => {
   moveRight.onmouseover = () => {
       moveR();
     }
+    cam.onmouseover = () => {
+        cams();
+      }
+
 
 //animatronic A,B movement
 function deathB(){
