@@ -26,16 +26,20 @@ const camBack = document.getElementById("camBack");
 
 const animatronik = document.getElementById("animatronik");
 
+const eyesSound = document.getElementById("eyesSound");
+
 let posA = 4;
 let difA = 40;
 let posB = 5;
 let difB = 40;
+let difD = 20;
 let cameraOn = 0; //is camera open?
 let cameraPosition = 1;
 let lDoor = 0; //1=closed; 0=open
 let rDoor = 0;
 let random = 0;
 let dead = 0; //1=dead
+let lightsOff = 0; //0= lights are on
 
 //player movement
 
@@ -55,9 +59,16 @@ function moveL() {
       dead = 1;
       console.log("You are fucking dead L");
     }
-    if (posB == 0.1) {
-      animatronik.style.display = "block";
-    }
+    controlPosition = setInterval(()=>{
+      if (posB == 0.1) {
+        animatronik.style.display = "block";
+      } else if (posB != 0.1) {
+        setTimeout(()=>{
+          animatronik.style.display = "none";
+          clearInterval(controlPosition);
+        },0)
+      }
+    },1)
   }
   if (loc == 4) {
     doorLeft.style.display = "none";
@@ -145,16 +156,16 @@ moveLeft.onmouseover = () => {
 moveRight.onmouseover = () => {
   moveR();
 };
-cam.onmouseover = () => {
+cam.onmousedown = () => {
   cams();
   console.log(back);
 };
-camBack.onmouseover = () => {
+camBack.onmousedown = () => {
   camsBack();
   console.log(back);
 };
 
-//animatronic A,B movement
+//animatronic movement
 
 let mathB = 0;
 function moveBmath() {
@@ -168,6 +179,7 @@ function moveBtimeout(timeout) {
   setTimeout(() => {
     moveB();
     console.log("B moved to " + posB);
+    cameraReload();
     moveBmath();
   }, timeout);
 }
@@ -184,8 +196,30 @@ function moveAtimeout(timeout) {
   setTimeout(() => {
     moveA();
     console.log("A moved to " + posA);
+    cameraReload();
     moveAmath();
   }, timeout);
+}
+
+function spawnEyes() {
+  console.log("Eyes has spawned!")
+  eyesSound.play()
+  setTimeout(() => {
+    if (lightsOff==0) {
+      console.log("You fucking died L")
+      //Eyes jumpscare
+    }else{
+      //Eyes appears
+      setTimeout(() => {
+        if (lightsOff==0) {
+          console.log("You fucking died L")
+          //Eyes jumpscare
+        }else{
+          //Eyes dissapears
+        }
+      }, 250);
+    }
+  }, 5000);
 }
 
 function moveB() {
@@ -288,7 +322,51 @@ function moveA() {
 window.onload = () => {
   moveBmath();
   moveAmath();
+  setInterval(() => {
+    random=Math.random()
+    if (random*10000<=difD*2) {
+      spawnEyes();
+    }
+  }, 1000);
 };
+
+function cameraReload() {
+  if(cameraOn == 1){
+    animatronik.style.display = "none";
+if (cameraPosition==1) {
+  if (posB==1) {
+    animatronik.style.display = "block";
+  }
+}else if (cameraPosition==2) {
+  if (posB==2) {
+    animatronik.style.display = "block";
+  }
+}else if (cameraPosition==3) {
+  if (posB==3) {
+    animatronik.style.display = "block";
+  }
+}else if (cameraPosition==4) {
+  if (posB==4) {
+    animatronik.style.display = "block";
+  }
+}else if (cameraPosition==5) {
+  if (posB==5) {
+    animatronik.style.display = "block";
+  }
+}else{
+  animatronik.style.display = "none";
+}
+}
+
+else if (cameraOn = 0){
+    if (posB==0.1 && loc == 3) {
+      animatronik.style.display = "block";
+    }
+    else{
+      animatronik.style.display = "none";
+    }
+}
+}
 
 //Camera
 camera.onmouseenter = () => {
@@ -310,6 +388,8 @@ camera.onmouseenter = () => {
     document.body.style.background = "gray";
     static.style.display = "none";
   }, 300);
+  cameraReload();
+  cameraOn = 1;
 };
 
 cameraOff.onmouseenter = () => {
@@ -332,6 +412,7 @@ cameraOff.onmouseenter = () => {
     camBack.style.display = "none";
     cam.style.display = "block";
     document.body.style.background = "gray";
+    document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
     static.style.display = "none";
   }, 300);
 };
@@ -345,6 +426,7 @@ cameraButton1.onclick = () => {
   camera5.style.display = "none";
   animatronik.style.display = "none";
   cameraPosition = 1;
+  cameraReload();
 };
 
 cameraButton2.onclick = () => {
@@ -356,6 +438,7 @@ cameraButton2.onclick = () => {
   camera5.style.display = "none";
   animatronik.style.display = "none";
   cameraPosition = 2;
+  cameraReload();
 };
 
 cameraButton3.onclick = () => {
@@ -367,6 +450,7 @@ cameraButton3.onclick = () => {
   camera5.style.display = "none";
   animatronik.style.display = "none";
   cameraPosition = 3;
+  cameraReload();
 };
 
 cameraButton4.onclick = () => {
@@ -378,6 +462,7 @@ cameraButton4.onclick = () => {
   camera5.style.display = "none";
   animatronik.style.display = "none";
   cameraPosition = 4;
+  cameraReload();
 };
 
 cameraButton5.onclick = () => {
@@ -389,16 +474,7 @@ cameraButton5.onclick = () => {
   camera4.style.display = "none";
   animatronik.style.display = "none";
   cameraPosition = 5;
-  setTimeout(() => {
-    Spawn = setInterval(() => {
-      if (posB == 5) {
-        animatronik.style.display = "block";
-      } else if (posB != 5) {
-        animatronik.style.display = "none";
-        clearInterval(Spawn);
-      }
-    }, 1);
-  }, 300);
+  cameraReload();
 };
 
 

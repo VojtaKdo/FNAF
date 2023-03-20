@@ -1,6 +1,16 @@
 
 body {
     background-color: gray;
+    background-image: url("mainOffice.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
     overflow: hidden;
 }
 #doorLeft {
