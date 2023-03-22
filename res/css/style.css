@@ -1,87 +1,61 @@
 
 body {
-    background-color: gray;
-    background-image: url("mainOffice.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+    background-image: url(../img/staticMenu.gif);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
     height: 100%;
     overflow: hidden;
+    user-select: none;
+    transition: .1s;
 }
-#doorLeft {
-    background-color: black;
-    position: relative;
-    margin: 0 auto;
-    width: 300px;
-    height: 500px;
-    display: none;
-    top: 200px;
-}
-#doorRight {
-    background-color: black;
-    position: relative;
-    margin: 0 auto;
-    width: 300px;
-    height: 500px;
-    display: none;
-    top: 200px;
-}
-#darkDoor{
-    background-color: black;
-    position: relative;
-    margin: 0 auto;
-    width: 500px;
-    height: 550px;
-    display: none;
-    top: 180px;
-}
+
 #moveLeft{
-    background-color: lightgray;
     width: 100px;
     height: 600px;
     left: 0px;
     position: absolute;
     top: 200px;
-    border: 3px solid black;
     opacity: 0.5;
+    border: 1px solid black;
+    background-color: darkslategray;
+    display: none;
 }
 #moveRight{
-    background-color: lightgray;
     width: 100px;
     height: 600px;
     right: 0px;
     position: absolute;
     top: 200px;
-    border: 3px solid black;
     opacity: 0.5;
+    border: 1px solid black;
+    background-color: darkslategray;
+    display: none;
 }
 #cam {
-    background-color: lightgray;
     position: absolute;
     bottom: 30px;
     width: 40%;
     left: 30%;
     right: 30%;
     height: 100px;
-    border: 3px solid black;
     opacity: 0.5;
+    border: 1px solid black;
+    background-color: darkslategray;
     display: block;
+    display: none;
 }
 #camBack {
-    background-color: lightgray;
     position: absolute;
     bottom: 30px;
     width: 40%;
     left: 30%;
     right: 30%;
     height: 100px;
-    border: 3px solid black;
     opacity: 0.5;
+    border: 1px solid black;
+    background-color: darkslategray;
     display: none;
 }
 
@@ -99,6 +73,7 @@ body {
     font-weight: bolder;
     font-size: 20pt;
     text-transform: uppercase;
+    display: none;
 }
 
 
@@ -130,8 +105,8 @@ body {
 }
 
 #static{
+    opacity: 0;
     display: none;
-    opacity: 1;
 }
 
 #mapImage{
@@ -165,4 +140,30 @@ body {
     position: absolute;
     left: 35%;
     top: 20%;
+}
+
+#clock{
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    color: white;
+    font-size: 30pt;
+    display: none;
+}
+
+#play{
+    position: relative;
+    margin: 0;
+    width: 310px;
+}
+
+#settings{
+    margin: 0;
+}
+
+
+#mainMenu{
+    font-size: 50pt;
+    color: white;
+    margin-left: 10%;
 }

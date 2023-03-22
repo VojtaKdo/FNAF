@@ -1,9 +1,11 @@
+const play = document.getElementById("play");
+const settings = document.getElementById("settings");
+const gameName = document.getElementById("gameName");
+const mainMenu = document.getElementById("mainMenu");
+
 const mapImage = document.getElementById("mapImage");
 const map = document.getElementById("map");
 
-const doorLeft = document.getElementById("doorLeft");
-const doorRight = document.getElementById("doorRight");
-const darkDoor = document.getElementById("darkDoor");
 const moveLeft = document.getElementById("moveLeft");
 const moveRight = document.getElementById("moveRight");
 
@@ -25,8 +27,9 @@ const cam = document.getElementById("cam");
 const camBack = document.getElementById("camBack");
 
 const animatronik = document.getElementById("animatronik");
-
 const eyesSound = document.getElementById("eyesSound");
+
+const clock = document.getElementById("clock");
 
 let posA = 4;
 let difA = 40;
@@ -40,6 +43,45 @@ let rDoor = 0;
 let random = 0;
 let dead = 0; //1=dead
 let lightsOff = 0; //0= lights are on
+let time = 0;
+let power = 100;
+let usage = 1;
+let powerTime = 0
+
+//game systems
+play.onclick=()=>{
+setInterval(() => {
+  if (dead == 0) {
+    time++;
+    if (time < 6) {
+      clock.innerHTML = "12:" + time + "0";
+    } else if (time < 12) {
+      clock.innerHTML = "1:" + (time - 6) + "0";
+    } else if (time < 18) {
+      clock.innerHTML = "2:" + (time - 12) + "0";
+    } else if (time < 24) {
+      clock.innerHTML = "3:" + (time - 18) + "0";
+    } else if (time < 30) {
+      clock.innerHTML = "4:" + (time - 24) + "0";
+    } else if (time < 36) {
+      clock.innerHTML = "5:" + (time - 30) + "0";
+    } else {
+      console.log("You won!!!");
+      clearInterval();
+    }
+  }
+}, 60000);
+}
+setInterval(() => {
+  if (powerTime+usage<10) {
+    powerTime+=usage
+  }else{
+    powerTime+=usage
+    powerTime-=10
+    power--
+    //update power %
+  }
+}, 1000);
 
 //player movement
 
@@ -50,38 +92,35 @@ function backDoor() {}
 function moveL() {
   loc--;
   if (loc == 3) {
-    doorLeft.style.display = "block";
     moveLeft.style.display = "none";
     cam.style.display = "none";
     camera.style.display = "none";
+    document.body.style.backgroundImage = "url(./res/css/doors.png)";
     if (posB == 0) {
       //jumpscare B
       dead = 1;
       console.log("You are fucking dead L");
     }
-    controlPosition = setInterval(()=>{
+    controlPosition = setInterval(() => {
       if (posB == 0.1) {
-        animatronik.style.display = "block";
       } else if (posB != 0.1) {
-        setTimeout(()=>{
+        setTimeout(() => {
           animatronik.style.display = "none";
           clearInterval(controlPosition);
-        },0)
+        }, 0);
       }
-    },1)
+    }, 1);
   }
   if (loc == 4) {
-    doorLeft.style.display = "none";
-    doorRight.style.display = "none";
     moveRight.style.display = "block";
     moveLeft.style.display = "block";
     cam.style.display = "block";
     camera.style.display = "block";
+    document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
     Spawn = setInterval(() => {
       if (posB == 0.1) {
-        animatronik.style.display = "block";
-      } else if (posB != 0.1) {
         animatronik.style.display = "none";
+      } else if (posB != 0.1) {
         clearInterval(Spawn);
       }
     }, 1);
@@ -90,53 +129,47 @@ function moveL() {
 function moveR() {
   loc++;
   if (loc == 5) {
-    doorRight.style.display = "block";
     moveRight.style.display = "none";
     cam.style.display = "none";
     camera.style.display = "none";
     animatronik.style.display = "none";
+    document.body.style.backgroundImage = "url(./res/css/doors.png)";
     if (posA == 0) {
       //jumpscare A
       dead = 1;
       console.log("You are fucking dead L");
+      animatronik.style.display = "none";
     }
   }
   if (loc == 4) {
-    doorRight.style.display = "none";
-    doorLeft.style.display = "none";
     moveRight.style.display = "block";
     moveLeft.style.display = "block";
     cam.style.display = "block";
     camera.style.display = "block";
     animatronik.style.display = "none";
+    document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
   }
 }
 
 function cams() {
   back--;
   if (back == 2) {
-    doorLeft.style.display = "none";
-    doorRight.style.display = "none";
     moveRight.style.display = "none";
     moveLeft.style.display = "none";
     cam.style.display = "none";
     camera.style.display = "none";
-    document.body.style.backgroundColor = "#4E4E4E";
-    darkDoor.style.display = "block";
+    document.body.style.backgroundImage = "url(./res/css/darkDoor.png)";
     camBack.style.display = "block";
   }
 }
 function camsBack() {
   back++;
   if (back == 3) {
-    doorLeft.style.display = "none";
-    doorRight.style.display = "none";
     moveRight.style.display = "block";
     moveLeft.style.display = "block";
     cam.style.display = "block";
     camera.style.display = "block";
-    document.body.style.backgroundColor = "gray";
-    darkDoor.style.display = "none";
+    document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
     camBack.style.display = "none";
   }
 }
@@ -170,7 +203,7 @@ camBack.onmousedown = () => {
 let mathB = 0;
 function moveBmath() {
   random = Math.random();
-  mathB = 100000 / (random * difB);
+  mathB = 100000 / ((random/1.3) * difB);
   console.log("B timer: " + mathB);
   moveBtimeout(mathB);
 }
@@ -202,19 +235,19 @@ function moveAtimeout(timeout) {
 }
 
 function spawnEyes() {
-  console.log("Eyes has spawned!")
-  eyesSound.play()
+  console.log("Eyes has spawned!");
+  eyesSound.play();
   setTimeout(() => {
-    if (lightsOff==0) {
-      console.log("You fucking died L")
+    if (lightsOff == 0) {
+      console.log("You fucking died L");
       //Eyes jumpscare
-    }else{
+    } else {
       //Eyes appears
       setTimeout(() => {
-        if (lightsOff==0) {
-          console.log("You fucking died L")
+        if (lightsOff == 0) {
+          console.log("You fucking died L");
           //Eyes jumpscare
-        }else{
+        } else {
           //Eyes dissapears
         }
       }, 250);
@@ -319,60 +352,52 @@ function moveA() {
     }
   }
 }
-window.onload = () => {
+play.onclick = () => {
   moveBmath();
   moveAmath();
   setInterval(() => {
-    random=Math.random()
-    if (random*10000<=difD*2) {
+    random = Math.random();
+    if (random * 10000 <= difD * 2) {
       spawnEyes();
     }
   }, 1000);
+  cameraOn = 0;
 };
 
 function cameraReload() {
-  if(cameraOn == 1){
+  if (cameraOn == 1) {
     animatronik.style.display = "none";
-if (cameraPosition==1) {
-  if (posB==1) {
-    animatronik.style.display = "block";
-  }
-}else if (cameraPosition==2) {
-  if (posB==2) {
-    animatronik.style.display = "block";
-  }
-}else if (cameraPosition==3) {
-  if (posB==3) {
-    animatronik.style.display = "block";
-  }
-}else if (cameraPosition==4) {
-  if (posB==4) {
-    animatronik.style.display = "block";
-  }
-}else if (cameraPosition==5) {
-  if (posB==5) {
-    animatronik.style.display = "block";
-  }
-}else{
-  animatronik.style.display = "none";
-}
-}
-
-else if (cameraOn = 0){
-    if (posB==0.1 && loc == 3) {
-      animatronik.style.display = "block";
-    }
-    else{
+    if (cameraPosition == 1) {
+      if (posB == 1) {
+        animatronik.style.display = "block";
+      }
+    } else if (cameraPosition == 2) {
+      if (posB == 2) {
+        animatronik.style.display = "block";
+      }
+    } else if (cameraPosition == 3) {
+      if (posB == 3) {
+        animatronik.style.display = "block";
+      }
+    } else if (cameraPosition == 4) {
+      if (posB == 4) {
+        animatronik.style.display = "block";
+      }
+    } else if (cameraPosition == 5) {
+      if (posB == 5) {
+        animatronik.style.display = "block";
+      }
+    } else {
       animatronik.style.display = "none";
     }
-}
+  } else {
+    animatronik.style.display = "none";
+  }
 }
 
 //Camera
 camera.onmouseenter = () => {
   camera.style.display = "none";
-  doorLeft.style.display = "none";
-  doorRight.style.display = "none";
   moveRight.style.display = "none";
   moveLeft.style.display = "none";
   camBack.style.display = "none";
@@ -390,6 +415,7 @@ camera.onmouseenter = () => {
   }, 300);
   cameraReload();
   cameraOn = 1;
+  clock.style.display = "none";
 };
 
 cameraOff.onmouseenter = () => {
@@ -411,10 +437,16 @@ cameraOff.onmouseenter = () => {
     moveLeft.style.display = "block";
     camBack.style.display = "none";
     cam.style.display = "block";
+    clock.style.display = "block";
     document.body.style.background = "gray";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
     document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
     static.style.display = "none";
   }, 300);
+  cameraOn = 0;
 };
 
 cameraButton1.onclick = () => {
@@ -476,5 +508,36 @@ cameraButton5.onclick = () => {
   cameraPosition = 5;
   cameraReload();
 };
+
+play.onclick = () => {
+  camera.style.display = "block";
+  moveRight.style.display = "block";
+  moveLeft.style.display = "block";
+  camBack.style.display = "none";
+  cam.style.display = "block";
+  clock.style.display = "block";
+  document.body.style.background = "gray";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+  document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
+  static.style.display = "none";
+  play.style.display = "none";
+  settings.style.display = "none";
+  gameName.style.display = "none";
+  mainMenu.style.display = "none";
+  animatronik.style.display = "none";
+  moveBmath();
+  moveAmath();
+  setInterval(() => {
+    random = Math.random();
+    if (random * 10000 <= difD * 2) {
+      spawnEyes();
+    }
+  }, 1000);
+  cameraOn = 0;
+};
+
 
 
