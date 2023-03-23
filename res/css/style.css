@@ -10,6 +10,19 @@ body {
     user-select: none;
     transition: .1s;
 }
+#lightButton{
+    position: relative;
+    top: 120px;
+    width: 280px;
+    margin: 0 auto;
+    height: 630px;
+    opacity: 0.5;
+    border: 1px solid black;
+    background-color: darkslategray;
+    display: none;
+    cursor: pointer;
+}
+
 
 #moveLeft{
     width: 100px;
@@ -43,8 +56,8 @@ body {
     opacity: 0.5;
     border: 1px solid black;
     background-color: darkslategray;
-    display: block;
     display: none;
+    cursor: pointer;
 }
 #camBack {
     position: absolute;
@@ -57,6 +70,7 @@ body {
     border: 1px solid black;
     background-color: darkslategray;
     display: none;
+    cursor: pointer;
 }
 
 #camera{
@@ -155,10 +169,13 @@ body {
     position: relative;
     margin: 0;
     width: 310px;
+    cursor: pointer;
 }
 
 #settings{
     margin: 0;
+    width: 220px;
+    cursor: pointer;
 }
 
 
@@ -166,4 +183,24 @@ body {
     font-size: 50pt;
     color: white;
     margin-left: 10%;
+}
+
+#usageDisplay{
+    width: 200px;
+}
+
+#powerCounter{
+    position: absolute;
+    width: 200px;
+    bottom: 80px;
+    color: white;
+}
+
+#power{
+    text-align: center;
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
 }
