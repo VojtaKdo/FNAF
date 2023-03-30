@@ -27,6 +27,8 @@ const cam = document.getElementById("cam");
 const camBack = document.getElementById("camBack");
 
 const lightButton = document.getElementById("lightButton");
+const closeButton = document.getElementById("closeButton");
+const openButton = document.getElementById("openButton");
 const lightButtonOff = document.getElementById("lightButtonOff");
 
 const animatronik = document.getElementById("animatronik");
@@ -69,6 +71,8 @@ let power = 100;
 let usage = 1;
 let powerTime = 0;
 let lightOn = 0;
+let close = 0;
+let openDoor = 0;
 
 //game systems
 
@@ -135,6 +139,14 @@ function moveL() {
     camera.style.display = "none";
     document.body.style.backgroundImage = "url(./res/css/doors.png)";
     lightButton.style.display = "block";
+    closeButton.style.display = "block";
+    if(close == 1){
+      document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+      document.body.style.background = "url(./res/img/doorsClosed.png)";
+    }
     if (posB == 0) {
       //jumpscare B
       dead = 1;
@@ -190,6 +202,8 @@ function moveR() {
     camera.style.display = "block";
     animatronik.style.display = "none";
     lightButton.style.display = "none";
+    closeButton.style.display = "none";
+    openButton.style.display = "none";
     document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
   }
 }
@@ -577,12 +591,47 @@ cameraButton5.onclick = () => {
   cameraopensound.play();
   cameraopensound.currentTime = "0";
 };
+function closeDoors(){
+  console.log(close);
+  document.body.style.background = "url(./res/img/doorsClosed.png)";
+}
+
+function openDoors(){
+  console.log(close);
+  document.body.style.background = "url(./res/css/doors.png)";
+}
+closeButton.onclick = () => {
+  closeButton.style.display = "none";
+  openButton.style.display = "block";
+  lightButton.style.display = "none";
+  animatronik.style.display = "none";
+  closeDoors();
+  close = 1;
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+  }
+openButton.onclick = () => {
+    closeButton.style.display = "block";
+    openButton.style.display = "none";
+    lightButton.style.display = "block";
+    openDoors();
+    close=0;
+    document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+    }
+
+
 
 lightButton.onclick = () => {
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundPosition = "center center";
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundAttachment = "fixed";
+
   lightOn += 1;
   setTimeout(()=>{
     lightOn -= 1;
@@ -596,7 +645,7 @@ lightButton.onclick = () => {
   }
   else if (lightOn == 0) {
     setTimeout(()=>{
-      document.body.style.background = "url(./res/img/doors.png)";
+      document.body.style.background = "url(./res/css/doors.png)";
       document.body.style.backgroundRepeat = "no-repeat";
       document.body.style.backgroundPosition = "center center";
       document.body.style.backgroundSize = "cover";

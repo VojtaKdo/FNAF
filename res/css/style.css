@@ -12,8 +12,8 @@ body {
 }
 #lightButton{
     position: relative;
-    top: 120px;
-    width: 280px;
+    top: 190px;
+    width: 330px;
     margin: 0 auto;
     height: 630px;
     opacity: 0.5;
@@ -21,6 +21,7 @@ body {
     background-color: darkslategray;
     display: none;
     cursor: pointer;
+    opacity: 0;
 }
 
 
@@ -71,6 +72,30 @@ body {
     background-color: darkslategray;
     display: none;
     cursor: pointer;
+}
+#closeButton {
+    position: absolute;
+    display: none;
+    border: 3px black solid;
+    width: 100px;
+    height: 100px;
+    top: 400px;
+    left: 400px;
+    background-color: darkslategray;
+    cursor: pointer;
+
+}
+#openButton {
+    position: absolute;
+    display: none;
+    border: 3px black solid;
+    width: 100px;
+    height: 100px;
+    top: 400px;
+    left: 400px;
+    background-color: darkslategray;
+    cursor: pointer;
+
 }
 
 #camera{
