@@ -47,6 +47,19 @@ mainmenutheme.volume = 0.3;
 //ambience
 const fnafambience = document.getElementById("fnafambience");
 fnafambience.volume = 0.3;
+//door sounds
+const doormovesound = document.getElementById("doormovesound");
+doormovesound.volume = 0.3;
+//turn around sound
+const turnaround = document.getElementById("turnaround");
+turnaround.volume = 0.6;
+//turn back sound
+const turnback = document.getElementById("turnback");
+turnback.volume = 0.6;
+//flashlight sound
+const flashlight = document.getElementById("flashlight");
+flashlight.volume = 0.6;
+
 //amogus
 const amogus = document.getElementById("amogus");
 amogus.volume = 0.2;
@@ -212,7 +225,8 @@ function moveR() {
 function cams() {
   back--;
   if (back == 2) {
-
+    turnaround.currentTime = 0;
+    turnaround.play();
     moveRight.style.display = "none";
     moveLeft.style.display = "none";
     cam.style.display = "none";
@@ -225,8 +239,9 @@ function cams() {
 //Venta
 function camsBack() {
   back++;
-  if (back == 3) {
-
+  if (back == 3) {;
+    turnback.currentTime = 0;
+    turnback.play();
     moveRight.style.display = "block";
     moveLeft.style.display = "block";
     cam.style.display = "block";
@@ -593,15 +608,20 @@ cameraButton5.onclick = () => {
 };
 function closeDoors(){
   console.log(close);
+  doormovesound.currentTime = 0;
+  doormovesound.play();
   document.body.style.background = "url(./res/img/doorsClosed.png)";
 }
 
 function openDoors(){
   console.log(close);
+  doormovesound.currentTime = 0;
+  doormovesound.play();
   document.body.style.background = "url(./res/css/doors.png)";
 }
 closeButton.onclick = () => {
   closeButton.style.display = "none";
+  doormovesound.play();
   openButton.style.display = "block";
   lightButton.style.display = "none";
   animatronik.style.display = "none";
@@ -614,6 +634,7 @@ closeButton.onclick = () => {
   }
 openButton.onclick = () => {
     closeButton.style.display = "block";
+    doormovesound.play();
     openButton.style.display = "none";
     lightButton.style.display = "block";
     openDoors();
@@ -627,6 +648,8 @@ openButton.onclick = () => {
 
 
 lightButton.onclick = () => {
+  flashlight.currentTime = 0;
+  flashlight.play();
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundPosition = "center center";
   document.body.style.backgroundSize = "cover";
@@ -665,6 +688,7 @@ lightButton.onclick = () => {
 play.onclick = () => {
   startTime();
   startPower();
+  fnafambience.play();
   camera.style.display = "block";
   moveRight.style.display = "block";
   moveLeft.style.display = "block";
