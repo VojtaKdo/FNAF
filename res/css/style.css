@@ -1,4 +1,10 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+    user-select: none;
+    user-zoom: none;
+    font-family: 'Chakra Petch', sans-serif;
+}
 body {
     background-image: url(../img/staticMenu.gif);
     background-repeat: no-repeat;
@@ -15,22 +21,40 @@ body {
     top: 190px;
     width: 330px;
     margin: 0 auto;
-    height: 630px;
+    height: 600px;
     opacity: 0.5;
     border: 1px solid black;
     background-color: darkslategray;
     display: none;
-    cursor: pointer;
+    cursor: cell;
     opacity: 0;
 }
-
+#lightButtonBack {
+    position: relative;
+    width: 660px;
+    height: 590px;
+    top: 150px;
+    border: 3px solid yellow;
+    display: none;
+    margin: 0 auto;
+    cursor: cell;
+    opacity: 0;
+}
+#amogusak {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: none;
+    top: 630px;
+    left: 755px;
+}
 
 #moveLeft{
     width: 100px;
     height: 600px;
     left: 0px;
     position: absolute;
-    top: 200px;
+    top: 170px;
     opacity: 0.5;
     border: 1px solid black;
     background-color: darkslategray;
@@ -41,7 +65,7 @@ body {
     height: 600px;
     right: 0px;
     position: absolute;
-    top: 200px;
+    top: 170px;
     opacity: 0.5;
     border: 1px solid black;
     background-color: darkslategray;
@@ -97,6 +121,30 @@ body {
     cursor: pointer;
 
 }
+#closeButtonRight {
+    position: absolute;
+    display: none;
+    border: 3px black solid;
+    width: 100px;
+    height: 100px;
+    top: 400px;
+    right: 400px;
+    background-color: darkslategray;
+    cursor: pointer;
+
+}
+#openButtonRight {
+    position: absolute;
+    display: none;
+    border: 3px black solid;
+    width: 100px;
+    height: 100px;
+    top: 400px;
+    right: 400px;
+    background-color: darkslategray;
+    cursor: pointer;
+
+}
 
 #camera{
     position: relative;
@@ -148,13 +196,6 @@ body {
     display: none;
 }
 
-#mapImage{
-    position: absolute;
-    right: 0;
-    bottom: 100px;
-    display: none;
-}
-
 #cameraButton{
     display: none;
     position: absolute;
@@ -195,12 +236,17 @@ body {
     margin: 0;
     width: 310px;
     cursor: pointer;
+    font-size: 40px;
+    bottom: 160px;
 }
 
 #settings{
+    position: relative;
     margin: 0;
     width: 220px;
     cursor: pointer;
+    font-size: 40px;
+    bottom: 120px;
 }
 
 
@@ -225,7 +271,44 @@ body {
     text-align: center;
     width: 200px;
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     display: none;
 }
+
+#map1, #map2, #map3, #map4, #map5{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+}
+
+@media all and (display-mode: fullscreen) {
+    #amogusak{
+        top: 700px;
+    }
+    #closeButton{
+        top: 470px;
+    }
+    #openButton{
+        top: 470px;
+    }
+    #closeButtonRight{
+        top: 470px;
+    }
+    #openButtonRight{
+        top: 470px;
+    }
+    #lightButton{
+        top: 260px;
+    }
+    #lightButtonBack{
+        top: 220px;
+    }
+    #moveLeft{
+        top: 240px;
+    }
+    #moveRight{
+        top: 240px;
+    }
+    }
