@@ -1,79 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./res/css/style.css" />
+    <title>quirky animatronics incoming!!</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./res/css/style.css" />
-  <title>quirky animatronics incoming!!</title>
-</head>
+    <link rel="preload" href="./res/css/doors.png" as="image" />
+    <link rel="preload" href="./res/img/doorsClosed.png" as="image" />
+    <link rel="preload" href="./res/css/mainOffice.png" as="image" />
+    <link rel="preload" href="./res/css/darkDoor.png" as="image" />
+    <link rel="preload" href="./res/img/doorsLight.png" as="image" />
+    <link rel="preload" href="./res/img/darkDoorLight.png" as="image" />
+  </head>
 
-<body>
-  <div id="mainMenu">
-    <p id="gameName">
-      One<br />
-      night<br />
-      at<br />
-      Steelware.co
-    </p>
-    <br>
-    <br>
-    <br>
-    <p id="play">New Game</p>
-    <p id="settings">Settings</p>
-  </div>
-  <!--Vojtus-->
-  <div id="camera">Camera</div>
-  <img id="static" src="./res/img/static.gif" alt="static" />
-  <div id="camera1">Camera 1</div>
-  <div id="camera2">Camera 2</div>
-  <div id="camera3">Camera 3</div>
-  <div id="camera4">Camera 4</div>
-  <div id="camera5">Camera 5</div>
-  <img id="animatronik" src="./res/img/animatronik.png" alt="animatronik" />
-  <div id="cameraOff">Camera off</div>
-  <img src="./res/img/map.png" id="mapImage" />
-  <div id="cameraButton">
-    <button id="cameraButton1">1</button>
-    <button id="cameraButton2">2</button>
-    <button id="cameraButton3">3</button>
-    <button id="cameraButton4">4</button>
-    <button id="cameraButton5">5</button>
-  </div>
+  <body>
+    <div id="mainMenu">
+      <p id="gameName">
+        One<br />
+        night<br />
+        at<br />
+        Steelware.co
+      </p>
+      <br />
+      <br />
+      <br />
+      <p id="play">New Game</p>
+      <p id="settings">Settings</p>
+    </div>
+    <!--Vojtus-->
+    <div id="camera">Camera</div>
+    <img id="static" src="./res/img/static.gif" alt="static" />
+    <div id="camera5">Camera 5</div>
+    <div id="camera1">Camera 1</div>
+    <div id="camera3">Camera 3</div>
+    <div id="camera4">Camera 4</div>
+    <div id="camera2">Camera 2</div>
+    <img id="animatronik" src="./res/img/animatronik.png" alt="animatronik" />
+    <div id="cameraOff">Camera off</div>
+    <img src="./res/img/map1.png" alt="map1" id="map1" />
+    <img src="./res/img/map2.png" alt="map2" id="map2" />
+    <img src="./res/img/map3.png" alt="map3" id="map3" />
+    <img src="./res/img/map4.png" alt="map4" id="map4" />
+    <img src="./res/img/map5.png" alt="map5" id="map5" />
+    <div id="cameraButton">
+      <button id="cameraButton5">5</button>
+      <button id="cameraButton1">1</button>
+      <button id="cameraButton3">3</button>
+      <button id="cameraButton4">4</button>
+      <button id="cameraButton2">2</button>
+    </div>
 
-  <!--Danos-->
-  <audio src="./res/music/Metal-Scraping.mp3" id="eyesSound"></audio>
-  <h1 id="clock">12:00</h1>
-  <div id="power">
-    <h1 id="powerCounter">100%</h1>
-    <img src="./res/img/BatteryUsage1.png" alt="" id="usageDisplay">
-  </div>
+    <!--Danos-->
+    <audio src="./res/music/Metal-Scraping.mp3" id="eyesSound"></audio>
+    <h1 id="clock">12:00</h1>
+    <div id="power">
+      <h1 id="powerCounter">100%</h1>
+      <img src="./res/img/BatteryUsage1.png" alt="" id="usageDisplay" />
+    </div>
 
-  <!-- Filip  -->
+    <!-- Filip  -->
 
-  <div id="moveLeft"></div>
-  <div id="moveRight"></div>
-  <div id="cam"></div>
-  <div id="camBack"></div>
+    <div id="moveLeft"></div>
+    <div id="moveRight"></div>
+    <div id="cam"></div>
+    <div id="camBack"></div>
+    <div id="amogusak"></div>
 
-  <div id="lightButton"></div>
-  <div id="closeButton"></div>
-  <div id="openButton"></div>
+    <div id="lightButton"></div>
+    <div id="lightButtonBack"></div>
+    <div id="closeButton"></div>
+    <div id="closeButtonRight"></div>
+    <div id="openButton"></div>
+    <div id="openButtonRight"></div>
 
+    <!-- Michal  -->
+    <audio
+      src="./res/music/fnaf-open-camera-sound.mp3"
+      id="cameraopensound"
+    ></audio>
+    <audio src="./res/music/Main Menu.mp3" id="mainmenutheme" loop></audio>
+    <audio src="./res/music/ambience.mp3" id="fnafambience" loop></audio>
+    <audio src="./res/music/dooropenclose.mp3" id="doormovesound"></audio>
+    <audio
+      src="./res/music/squeaky_chair_sound_effect.mp3"
+      id="turnaround"
+    ></audio>
+    <audio
+      src="./res/music/squeaky_chair_sound_effect_back.mp3"
+      id="turnback"
+    ></audio>
+    <audio src="./res/music/flashlight.mp3" id="flashlight"></audio>
+    <audio src="./res/music/amogus.mp3" id="amogus"></audio>
 
-  <!-- Michal  -->
-  <audio src="./res/music/fnaf-open-camera-sound.mp3" id="cameraopensound"></audio>  
-  <audio src="./res/music/Main Menu.mp3" id="mainmenutheme" loop> </audio>  
-  <audio src="./res/music/ambience.mp3" id="fnafambience" loop> </audio>
-  <audio src="./res/music/dooropenclose.mp3" id="doormovesound"> </audio>
-  <audio src="./res/music/squeaky_chair_sound_effect.mp3" id="turnaround"> </audio>  
-  <audio src="./res/music/squeaky_chair_sound_effect_back.mp3" id="turnback"> </audio>
-  <audio src="./res/music/flashlight.mp3" id="flashlight"> </audio>
-  <audio src="./res/music/amogus.mp3" id="amogus"> </audio>
-
-  <script src="./res/js/main.js"></script>
-
-</body>
-
+    <script src="./res/js/main.js"></script>
+  </body>
 </html>
