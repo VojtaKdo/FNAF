@@ -17,6 +17,8 @@ const camera3 = document.getElementById("camera3");
 const camera4 = document.getElementById("camera4");
 const camera5 = document.getElementById("camera5");
 const amogusak = document.getElementById("amogusak");
+const energy = document.getElementById("energy");
+const energyBack = document.getElementById("energyBack");
 const cameraButton = document.getElementById("cameraButton");
 const cameraButton1 = document.getElementById("cameraButton1");
 const cameraButton2 = document.getElementById("cameraButton2");
@@ -69,9 +71,14 @@ turnback.volume = 0.6;
 const flashlight = document.getElementById("flashlight");
 flashlight.volume = 0.6;
 
+const energyDown = document.getElementById("energyDown");
+
+const energyUp = document.getElementById("energyUp");
+
+const radio = document.getElementById("radio");
+
 //amogus
 const amogus = document.getElementById("amogus");
-amogus.volume = 0.2;
 
 let posA = 4;
 let difA = 40;
@@ -146,6 +153,50 @@ function startPower() {
     }
   }, 1000);
 }
+//energy off
+function powerEnergy(){
+  document.body.style.background = "url(./res/img/darkOffice.png)";
+  document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
+  moveLeft.style.display = "none";
+  moveRight.style.display = "none";
+  cam.style.display = "none";
+  camera.style.display = "none";
+  energy.style.display = "none";
+  energyBack.style.display = "block";
+  lDoor = 0;
+  rDoor = 0;
+}
+function powerEnergyBack(){
+  document.body.style.background = "url(./res/css/mainOffice.png)";
+  document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
+  moveLeft.style.display = "block";
+  moveRight.style.display = "block";
+  cam.style.display = "block";
+  camera.style.display = "block";
+  energy.style.display = "block";
+  energyBack.style.display = "none";
+}
+
+energy.onclick = () => {
+  powerEnergy();
+  energyDown.play();
+  energyUp.pause();
+  energyUp.currentTime = 1;
+  energyDown.volume = 0.5;
+}
+energyBack.onclick = () => {
+  powerEnergyBack();
+  energyUp.play();
+  energyDown.pause();
+  energyDown.currentTime = 0;
+  energyUp.volume = 1;
+}
 
 //player movement
 
@@ -167,6 +218,7 @@ function moveL() {
     camera.style.display = "none";
     lightButton.style.display = "block";
     amogusak.style.display = "none";
+    energy.style.display = "none";
     if (lDoor == 1) {
       closeButton.style.display = "none";
       openButton.style.display = "block";
@@ -215,6 +267,7 @@ function moveL() {
     openButton.style.display = "none";
     openButtonRight.style.display = "none";
     amogusak.style.display = "block";
+    energy.style.display = "block";
     document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
     document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
     Spawn = setInterval(() => {
@@ -236,6 +289,7 @@ function moveR() {
     camera.style.display = "none";
     lightButton.style.display = "block";
     amogusak.style.display = "none";
+    energy.style.display = "none";
     if (rDoor == 1) {
       closeButtonRight.style.display = "none";
       openButtonRight.style.display = "block";
@@ -274,6 +328,7 @@ function moveR() {
     openButton.style.display = "none";
     openButtonRight.style.display = "none";
     amogusak.style.display = "block";
+    energy.style.display = "block";
     document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
   }
 }
@@ -430,11 +485,14 @@ function moveC() {
     dead = 1;
     console.log("You are fucking dead L");
     //Hangman jumpscare
-  } else {
+  }
+   else {
     if (back == 2) {
     } else {
       posC--;
-      //move noise
+        radio.play();
+        radio.volume = 1;
+      
     }
   }
 }
@@ -967,21 +1025,24 @@ lightButtonBack.onmouseenter = () => {
   setTimeout(() => {}, 0);
   if (lightOnBack == 1) {
     if (posC==1) {
+      document.body.style.background = "url(./res/img/hangmanDoorLight.png)";
       //ukázat animatronika
       setTimeout(() => {
         //schovat animatronika
         random=Math.random();
         if (random<1/3) {
-          posC=4
+          posC=4;
         }else if(random<2/3){
-          posC=3
+          posC=3;
         }else{
-          posC=2
+          posC=2;
         }
         console.log("C moved to " + posC);
       }, 5000);
     }
-    document.body.style.background = "url(./res/img/darkDoorLight.png)";
+    else{
+      document.body.style.background = "url(./res/img/darkDoorLight.png)";
+    }
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundPosition = "center center";
     document.body.style.backgroundSize = "cover";
@@ -1026,6 +1087,7 @@ play.onclick = () => {
   clock.style.display = "block";
   powerful.style.display = "block";
   amogusak.style.display = "block";
+  energy.style.display = "block";
   document.body.style.background = "gray";
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundPosition = "center center";
