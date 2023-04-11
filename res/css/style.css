@@ -4,6 +4,7 @@
     user-select: none;
     user-zoom: none;
     font-family: 'Chakra Petch', sans-serif;
+    transition: .1s;
 }
 body {
     background-image: url(../img/staticMenu.gif);
@@ -14,7 +15,6 @@ body {
     height: 100%;
     overflow: hidden;
     user-select: none;
-    transition: .1s;
 }
 #lightButton{
     position: relative;
