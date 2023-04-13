@@ -77,13 +77,15 @@ const energyUp = document.getElementById("energyUp");
 
 const radio = document.getElementById("radio");
 
+const heartbeat = document.getElementById("heartbeat");
+heartbeat.volume = 0.3;
 //amogus
 const amogus = document.getElementById("amogus");
 
 let posA = 4;
-let difA = 40;
+let difA = 20;
 let posB = 5;
-let difB = 40;
+let difB = 20;
 let posC = 4;
 let difC = 20;
 let difD = 20;
@@ -144,13 +146,21 @@ function startTime() {
 function startPower() {
   setInterval(() => {
     if (dead == 0) {
-      if (powerTime + usage < 10) {
-        powerTime += usage;
-      } else {
-        powerTime += usage;
-        powerTime -= 11;
-        power--;
-        powerCounter.innerHTML = power + "%";
+      if (power>0) {
+        if (powerTime + usage < 10) {
+          powerTime += usage;
+        } else {
+          powerTime += usage;
+          powerTime -= 10;
+          power--;
+          powerCounter.innerHTML = power + "%";
+        }
+      }else{
+        powerEnergy();
+        energyDown.play();
+        energyUp.pause();
+        energyUp.currentTime = 1;
+        energyDown.volume = 0.5;
       }
     }
   }, 1000);
@@ -197,13 +207,21 @@ energy.onclick = () => {
   energyUp.pause();
   energyUp.currentTime = 1;
   energyDown.volume = 0.5;
+  fnafambience.pause();
+  heartbeat.currentTime = 0;
+  heartbeat.play();
 };
 energyBack.onclick = () => {
-  powerEnergyBack();
-  energyUp.play();
-  energyDown.pause();
-  energyDown.currentTime = 0;
-  energyUp.volume = 1;
+  if (power>0) {
+    powerEnergyBack();
+    energyUp.play();
+    energyDown.pause();
+    energyDown.currentTime = 0;
+    energyUp.volume = 1;
+    fnafambience.play();
+    heartbeat.pause();
+    
+  }
 };
 
 //player movement
@@ -437,7 +455,7 @@ function moveCtimeout(timeout) {
 let mathB = 0;
 function moveBmath() {
   random = Math.random();
-  mathB = 100000 / ((random / 1.1) * difB);
+  mathB = 100000 / ((random / 1.1) * (2*difB));
   console.log("B timer: " + mathB);
   moveBtimeout(mathB);
 }
@@ -454,7 +472,7 @@ function moveBtimeout(timeout) {
 let mathA = 0;
 function moveAmath() {
   random = Math.random();
-  mathA = 100000 / (random * difA);
+  mathA = 100000 / (random * (difA*2));
   console.log("A timer: " + mathA);
   moveAtimeout(mathA);
 }
@@ -477,16 +495,24 @@ function spawnEyes() {
       console.log("You fucking died L");
       //Eyes jumpscare
     } else {
-      //Eyes appears
+      document.body.style.background = "url(./res/img/darkOfficeEyes.png)";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "center center";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundAttachment = "fixed";
       setTimeout(() => {
         if (lightsOff == 0) {
           dead = 1;
           console.log("You fucking died L");
           //Eyes jumpscare
         } else {
-          //Eyes dissapears
+          document.body.style.background = "url(./res/img/darkOffice.png)";
+          document.body.style.backgroundRepeat = "no-repeat";
+          document.body.style.backgroundPosition = "center center";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
         }
-      }, 250);
+      }, 500);
     }
   }, 5000);
 }
@@ -548,7 +574,7 @@ function moveB() {
 
 function moveA() {
   if (posA == 4) {
-    posA = 2;
+    posA = 3;
   } else if (posA == 3) {
     random = Math.random();
     if (random <= 0.15) {
@@ -577,7 +603,7 @@ function moveA() {
     if (rDoor == 0) {
       posA = 0; //0=office
       if (loc == 5) {
-        //jumpscare A
+        //jumpscare Scrapper
         dead = 1;
         console.log("You are fucking dead L");
       }
@@ -586,7 +612,7 @@ function moveA() {
           if (cameraOn == 1) {
             cameraOn = 0;
           }
-          //jumpscare A
+          //jumpscare Scrapper
           dead = 1;
           console.log("You are fucking dead L");
         }
@@ -1142,7 +1168,7 @@ play.onclick = () => {
   moveCmath();
   setInterval(() => {
     random = Math.random();
-    if (random * 10000 <= difD * 2) {
+    if (random * 10000 <= difD * 3) {
       spawnEyes();
     }
   }, 1000);
