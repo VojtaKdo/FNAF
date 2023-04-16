@@ -1,5 +1,20 @@
 const play = document.getElementById("play");
 const settings = document.getElementById("settings");
+const backSettings = document.getElementById("backSettings");
+const difficultySettings = document.getElementById("difficultySettings");
+const difficultyScrapper = document.getElementById("difficultyScrapper");
+const difficultySlaughter = document.getElementById("difficultySlaughter");
+const difficultyHangman = document.getElementById("difficultyHangman");
+const difficultyEyes = document.getElementById("difficultyEyes");
+const difficultyCounter = document.getElementById("difficultyCounter");
+const difficultyCounterScrapper = document.getElementById("difficultyCounterScrapper");
+const difficultyCounterSlaughter = document.getElementById("difficultyCounterSlaughter");
+const difficultyCounterHangman = document.getElementById("difficultyCounterHangman");
+const difficultyCounterEyes = document.getElementById("difficultyCounterEyes");
+const decreaseDiff = document.getElementsByClassName("decreaseDiff");
+const increaseDiff = document.getElementsByClassName("increaseDiff");
+const numberDiff = document.getElementsByClassName("numberDiff");
+const obalDiff = document.getElementsByClassName("obalDiff");
 const gameName = document.getElementById("gameName");
 const mainMenu = document.getElementById("mainMenu");
 
@@ -78,17 +93,18 @@ const energyUp = document.getElementById("energyUp");
 const radio = document.getElementById("radio");
 
 const heartbeat = document.getElementById("heartbeat");
-heartbeat.volume = 0.3;
+
+const appear = document.getElementById("appear");
 //amogus
 const amogus = document.getElementById("amogus");
 
 let posA = 4;
-let difA = 20;
+let difA = 1;
 let posB = 5;
-let difB = 20;
+let difB = 1;
 let posC = 4;
-let difC = 20;
-let difD = 20;
+let difC = 1;
+let difD = 1;
 let cameraOn = 0; //is camera open?
 let cameraPosition = 1;
 let lDoor = 0; //1=closed; 0=open
@@ -495,6 +511,8 @@ function spawnEyes() {
       console.log("You fucking died L");
       //Eyes jumpscare
     } else {
+      heartbeat.play();
+      heartbeat.volume = 0.3;
       document.body.style.background = "url(./res/img/darkOfficeEyes.png)";
       document.body.style.backgroundRepeat = "no-repeat";
       document.body.style.backgroundPosition = "center center";
@@ -643,9 +661,23 @@ function cameraReload() {
       }
     } else if (cameraPosition == 2) {
       cameraopensound.play();
-      if (posB == 2) {
+      if (posA == 2) {
         setTimeout(() => {
-          animatronik.style.display = "block";
+          document.body.style.background ="url(./res/img/camTwoScrapper.png)";
+          document.body.style.backgroundRepeat = "no-repeat";
+          document.body.style.backgroundPosition = "center center";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
+        }, 300);
+        
+      }
+      else{
+        setTimeout(() => {
+          document.body.style.background ="url(./res/img/camTwo.png)";
+          document.body.style.backgroundRepeat = "no-repeat";
+          document.body.style.backgroundPosition = "center center";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
         }, 300);
       }
     } else if (cameraPosition == 3) {
@@ -1056,10 +1088,28 @@ lightButton.onmouseenter = () => {
     }, 1);
   }
   if (posB == 0.1 && loc == 3 && lightOn == 1) {
-    animatronik.style.display = "block";
+    appear.play();
+    appear.currentTime = 1.5;
+    appear.volume = 0.5;
+    document.body.style.background = "url(./res/img/doorsLightSlaughter.png)";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
+  }
+  else if (posA == 0.2 && loc == 5 && lightOn == 1){
+    appear.play();
+    appear.currentTime = 1.5;
+    appear.volume = 0.5;
+    document.body.style.background = "url(./res/img/doorsLightScrapper.png)";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
   } else {
     animatronik.style.display = "none";
   }
+  
 };
 lightButton.onmouseleave = () => {
   document.body.style.backgroundRepeat = "no-repeat";
@@ -1142,6 +1192,7 @@ lightButtonBack.onmouseleave = () => {
 play.onclick = () => {
   startTime();
   startPower();
+  mainmenutheme.pause();
   fnafambience.play();
   camera.style.display = "block";
   moveRight.style.display = "block";
@@ -1181,21 +1232,154 @@ amogusak.onclick = () => {
 };
 
 play.onmouseover = () => {
-  play.innerHTML = `>> New Game`;
-  play.style.width = "400px";
+  play.innerHTML = `>>NewGame`;
+  play.style.width = "280px";
 };
 
 play.onmouseleave = () => {
   play.innerHTML = `New Game`;
-  play.style.width = "310px";
+  play.style.width = "200px";
 };
 
 settings.onmouseover = () => {
-  settings.innerHTML = `>> Settings`;
-  settings.style.width = "310px";
+  settings.innerHTML = `>>Settings`;
+  settings.style.width = "220px";
 };
 
 settings.onmouseleave = () => {
   settings.innerHTML = `Settings`;
-  settings.style.width = "220px";
+  settings.style.width = "160px";
 };
+
+backSettings.onmouseover = () => {
+  backSettings.innerHTML = `>>Back`;
+  backSettings.style.width = "260px";
+};
+
+backSettings.onmouseleave = () => {
+  backSettings.innerHTML = `Back`;
+  backSettings.style.width = "150px";
+};
+
+settings.onclick = () => {
+  difficultyScrapper.style.display = "inline-block";
+  difficultySlaughter.style.display = "inline-block";
+  difficultyHangman.style.display = "inline-block";
+  difficultyEyes.style.display = "inline-block";
+  difficultyCounterScrapper.style.display = "block";
+  difficultyCounterSlaughter.style.display = "block";
+  difficultyCounterHangman.style.display = "block";
+  difficultyCounterEyes.style.display = "block";
+  backSettings.style.display = "block";
+  document.body.style.background = "black";
+  settings.style.display = "none";
+  play.style.display = "none";
+  gameName.style.display = "none";
+  mainMenu.style.display = "none";
+  decreaseDiff[0].innerHTML = `<`;
+  increaseDiff[0].innerHTML = `>`;
+  decreaseDiff[1].innerHTML = `<`;
+  increaseDiff[1].innerHTML = `>`;
+  decreaseDiff[2].innerHTML = `<`;
+  increaseDiff[2].innerHTML = `>`;
+  decreaseDiff[3].innerHTML = `<`;
+  increaseDiff[3].innerHTML = `>`;
+}
+
+decreaseDiff[0].onclick = () => {
+  difA--;
+  numberDiff[0].innerHTML = `${difA}`
+  if(difA <= 0){
+    difA = 20;
+    numberDiff[0].innerHTML = `${difA}`
+  }
+}
+
+increaseDiff[0].onclick = () => {
+  difA++;
+  numberDiff[0].innerHTML = `${difA}`
+  if(difA > 20){
+    difA = 1;
+    numberDiff[0].innerHTML = `${difA}`
+  }
+}
+
+decreaseDiff[1].onclick = () => {
+  difB--;
+  numberDiff[1].innerHTML = `${difB}`
+  if(difB <= 0){
+    difB = 20;
+    numberDiff[1].innerHTML = `${difB}`
+  }
+}
+
+increaseDiff[1].onclick = () => {
+  difB++;
+  numberDiff[1].innerHTML = `${difB}`
+  if(difB > 20){
+    difB = 1;
+    numberDiff[1].innerHTML = `${difB}`
+  }
+}
+
+decreaseDiff[2].onclick = () => {
+  difC--;
+  numberDiff[2].innerHTML = `${difC}`
+  if(difC <= 0){
+    difC = 20;
+    numberDiff[2].innerHTML = `${difC}`
+  }
+}
+
+increaseDiff[2].onclick = () => {
+  difC++;
+  numberDiff[2].innerHTML = `${difC}`
+  if(difC > 20){
+    difC = 1;
+    numberDiff[2].innerHTML = `${difC}`
+  }
+}
+
+decreaseDiff[3].onclick = () => {
+  difD--;
+  numberDiff[3].innerHTML = `${difD}`
+  if(difD <= 0){
+    difD = 20;
+    numberDiff[3].innerHTML = `${difD}`
+  }
+}
+
+increaseDiff[3].onclick = () => {
+  difD++;
+  numberDiff[3].innerHTML = `${difD}`
+  if(difD > 20){
+    difD = 1;
+    numberDiff[3].innerHTML = `${difD}`
+  }
+}
+
+backSettings.onclick = () => {
+  difficultyScrapper.style.display = "none";
+  difficultySlaughter.style.display = "none";
+  difficultyHangman.style.display = "none";
+  difficultyEyes.style.display = "none";
+  difficultyCounterScrapper.style.display = "none";
+  difficultyCounterSlaughter.style.display = "none";
+  difficultyCounterHangman.style.display = "none";
+  difficultyCounterEyes.style.display = "none";
+  backSettings.style.display = "none";
+  document.body.style.background = "url(./res/img/staticMenu.gif)";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+  settings.style.display = "block";
+  play.style.display = "block";
+  gameName.style.display = "block";
+  mainMenu.style.display = "block";
+}
+
+window.onload = () => {
+  mainmenutheme.play();
+  mainmenutheme.volume = 0.3;
+}
