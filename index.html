@@ -13,20 +13,25 @@
     <link rel="preload" href="./res/css/mainOffice.png" as="image" />
     <link rel="preload" href="./res/css/darkDoor.png" as="image" />
     <link rel="preload" href="./res/img/doorsLight.png" as="image" />
+    <link rel="preload" href="./res/img/doorsLightScrapper.png" as="image" />
+    <link rel="preload" href="./res/img/doorsLightSlaughter.png" as="image" />
     <link rel="preload" href="./res/img/darkDoorLight.png" as="image" />
     <link rel="preload" href="./res/img/hangmanDoorLight.png" as="image" />
     <link rel="preload" href="./res/img/darkOffice.png" as="image" />
+    <link rel="preload" href="./res/img/darkOfficeEyes.png" as="image" />
     <link rel="preload" href="./res/img/camFour.png" as="image" />
     <link rel="preload" href="./res/img/camThree.png" as="image" />
     <link rel="preload" href="./res/img/camThreeScrapper.png" as="image" />
     <link rel="preload" href="./res/img/camFourScrapper.png" as="image" />
+    <link rel="preload" href="./res/img/camTwoScrapper.png" as="image" />
+    <link rel="preload" href="./res/img/camTwo" as="image" />
   </head>
 
   <body>
     <div id="mainMenu">
       <p id="gameName">
         One<br />
-        night<br />
+        Night<br />
         at<br />
         Steelware.co
       </p>
@@ -36,6 +41,54 @@
       <p id="play">New Game</p>
       <p id="settings">Settings</p>
     </div>
+      <p id="backSettings">Back</p>
+      <div id="difficultySettings">
+      <div class="obalDiff">
+        <div id="difficultyScrapper"></div>
+        <div id="difficultyCounterScrapper">
+          <div class="container">
+          <div class="decreaseDiff"></div> 
+          <div class="numberDiff">1</div>
+          <div class="increaseDiff"></div>
+        </div>
+        </div>
+        </div>
+
+      <div class="obalDiff">
+        <div id="difficultySlaughter"></div>
+        <div id="difficultyCounterSlaughter">
+          <div class="container">
+            <div class="decreaseDiff"></div> 
+            <div class="numberDiff">1</div>
+            <div class="increaseDiff"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="obalDiff">
+        <div id="difficultyHangman"></div>
+        <div id="difficultyCounterHangman">
+          <div class="container">
+            <div class="decreaseDiff"></div> 
+            <div class="numberDiff">1</div>
+            <div class="increaseDiff"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="obalDiff">
+        <div id="difficultyEyes"></div>
+        <div id="difficultyCounterEyes">
+          <div class="container">
+            <div class="decreaseDiff"></div> 
+            <div class="numberDiff">1</div>
+            <div class="increaseDiff"></div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
     <!--Vojtus-->
     <div id="camera">Camera</div>
     <img id="static" src="./res/img/static.gif" alt="static" />
@@ -44,13 +97,17 @@
     <div id="camera3">Camera 3</div>
     <div id="camera4">Camera 4</div>
     <div id="camera2">Camera 2</div>
+
     <img id="animatronik" src="./res/img/animatronik.png" alt="animatronik" />
+
     <div id="cameraOff">Camera off</div>
+
     <img src="./res/img/map1.png" alt="map1" id="map1" />
     <img src="./res/img/map2.png" alt="map2" id="map2" />
     <img src="./res/img/map3.png" alt="map3" id="map3" />
     <img src="./res/img/map4.png" alt="map4" id="map4" />
     <img src="./res/img/map5.png" alt="map5" id="map5" />
+
     <div id="cameraButton">
       <button id="cameraButton5">5</button>
       <button id="cameraButton1">1</button>
@@ -106,6 +163,7 @@
     <audio src="./res/music/powerUp.mp3" id="energyUp"></audio>
     <audio src="./res/music/radio.mp3" id="radio"></audio>
     <audio src="./res/music/heartbeatsound.mp3" id="heartbeat" loop></audio>
+    <audio src="./res/music/appear.mp3" id="appear"></audio>
 
     <script src="./res/js/main.js"></script>
   </body>
