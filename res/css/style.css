@@ -1,340 +1,440 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
-*{
-    box-sizing: border-box;
-    user-select: none;
-    user-zoom: none;
-    font-family: 'Chakra Petch', sans-serif;
-    transition: .1s;
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap");
+* {
+  box-sizing: border-box;
+  user-select: none;
+  user-zoom: none;
+  font-family: "Chakra Petch", sans-serif;
+  transition: 0.1s;
 }
 body {
-    background-image: url(../img/staticMenu.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100%;
-    overflow: hidden;
-    user-select: none;
+  background-image: url(../img/staticMenu.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
 }
-#lightButton{
-    position: relative;
-    top: 190px;
-    width: 330px;
-    margin: 0 auto;
-    height: 600px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    display: none;
-    cursor: cell;
-    opacity: 0;
+#lightButton {
+  position: relative;
+  top: 190px;
+  width: 330px;
+  margin: 0 auto;
+  height: 600px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  display: none;
+  cursor: cell;
+  opacity: 0;
 }
 #lightButtonBack {
-    position: relative;
-    width: 660px;
-    height: 590px;
-    top: 150px;
-    border: 3px solid yellow;
-    display: none;
-    margin: 0 auto;
-    cursor: cell;
-    opacity: 0;
+  position: relative;
+  width: 660px;
+  height: 590px;
+  top: 150px;
+  border: 3px solid yellow;
+  display: none;
+  margin: 0 auto;
+  cursor: cell;
+  opacity: 0;
 }
 #amogusak {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    display: none;
-    top: 630px;
-    left: 755px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: none;
+  top: 630px;
+  left: 755px;
 }
 #energy {
-    position: absolute;
-    width: 190px;
-    height: 275px;
-    top: 310px;
-    right: 392px;
-    border: 4px solid rebeccapurple;
-    display: none;
-    opacity: 0;
+  position: absolute;
+  width: 190px;
+  height: 275px;
+  top: 310px;
+  right: 392px;
+  border: 4px solid rebeccapurple;
+  display: none;
+  opacity: 0;
 }
 #energyBack {
-    position: absolute;
-    width: 190px;
-    height: 275px;
-    top: 310px;
-    right: 392px;
-    border: 4px solid rebeccapurple;
-    display: none;
-    opacity: 0;
+  position: absolute;
+  width: 190px;
+  height: 275px;
+  top: 310px;
+  right: 392px;
+  border: 4px solid rebeccapurple;
+  display: none;
+  opacity: 0;
 }
 
-#moveLeft{
-    width: 100px;
-    height: 600px;
-    left: 0px;
-    position: absolute;
-    top: 170px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    display: none;
+#moveLeft {
+  width: 100px;
+  height: 600px;
+  left: 0px;
+  position: absolute;
+  top: 170px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  display: none;
 }
-#moveRight{
-    width: 100px;
-    height: 600px;
-    right: 0px;
-    position: absolute;
-    top: 170px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    display: none;
+#moveRight {
+  width: 100px;
+  height: 600px;
+  right: 0px;
+  position: absolute;
+  top: 170px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  display: none;
 }
 #cam {
-    position: absolute;
-    bottom: 30px;
-    width: 40%;
-    left: 30%;
-    right: 30%;
-    height: 100px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    display: none;
-    cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  width: 40%;
+  left: 30%;
+  right: 30%;
+  height: 100px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  display: none;
+  cursor: pointer;
 }
 #camBack {
-    position: absolute;
-    bottom: 30px;
-    width: 40%;
-    left: 30%;
-    right: 30%;
-    height: 100px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    display: none;
-    cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  width: 40%;
+  left: 30%;
+  right: 30%;
+  height: 100px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  display: none;
+  cursor: pointer;
 }
 #closeButton {
-    position: absolute;
-    display: none;
-    border: 3px black solid;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 400px;
-    background-color: darkslategray;
-    cursor: pointer;
-
+  position: absolute;
+  display: none;
+  border: 3px black solid;
+  width: 100px;
+  height: 100px;
+  top: 400px;
+  left: 400px;
+  background-color: darkslategray;
+  cursor: pointer;
 }
 #openButton {
-    position: absolute;
-    display: none;
-    border: 3px black solid;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 400px;
-    background-color: darkslategray;
-    cursor: pointer;
-
+  position: absolute;
+  display: none;
+  border: 3px black solid;
+  width: 100px;
+  height: 100px;
+  top: 400px;
+  left: 400px;
+  background-color: darkslategray;
+  cursor: pointer;
 }
 #closeButtonRight {
-    position: absolute;
-    display: none;
-    border: 3px black solid;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    right: 400px;
-    background-color: darkslategray;
-    cursor: pointer;
-
+  position: absolute;
+  display: none;
+  border: 3px black solid;
+  width: 100px;
+  height: 100px;
+  top: 400px;
+  right: 400px;
+  background-color: darkslategray;
+  cursor: pointer;
 }
 #openButtonRight {
-    position: absolute;
-    display: none;
-    border: 3px black solid;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    right: 400px;
-    background-color: darkslategray;
-    cursor: pointer;
-
+  position: absolute;
+  display: none;
+  border: 3px black solid;
+  width: 100px;
+  height: 100px;
+  top: 400px;
+  right: 400px;
+  background-color: darkslategray;
+  cursor: pointer;
 }
 
-#camera{
-    position: relative;
-    margin-top: 0;
-    width: 50%;
-    left: 25%;
-    right: 25%;
-    padding: 10px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 20pt;
-    text-transform: uppercase;
-    display: none;
+#camera {
+  position: relative;
+  margin-top: 0;
+  width: 50%;
+  left: 25%;
+  right: 25%;
+  padding: 10px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20pt;
+  text-transform: uppercase;
+  display: none;
 }
 
-
-
-#camera1, #camera2, #camera3, #camera4, #camera5{
-    display: none;
-    font-size: 50px;
-    margin-top: 0;
-    text-align: center;
-    color: white;
-    text-transform: uppercase;
-} 
-
-#cameraOff{
-    font-weight: bolder;
-    display: none;
-    width: 50%;
-    left: 10%;
-    right: 40%;
-    bottom: 30px;
-    padding: 10px;
-    opacity: 0.5;
-    border: 1px solid black;
-    background-color: darkslategray;
-    text-align: center;
-    position: absolute;
-    font-size: 20pt;
-    text-transform: uppercase;
+#camera1,
+#camera2,
+#camera3,
+#camera4,
+#camera5 {
+  display: none;
+  font-size: 50px;
+  margin-top: 0;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
 }
 
-#static{
-    opacity: 0;
-    display: none;
+#cameraOff {
+  font-weight: bolder;
+  display: none;
+  width: 50%;
+  left: 10%;
+  right: 40%;
+  bottom: 30px;
+  padding: 10px;
+  opacity: 0.5;
+  border: 1px solid black;
+  background-color: darkslategray;
+  text-align: center;
+  position: absolute;
+  font-size: 20pt;
+  text-transform: uppercase;
 }
 
-#cameraButton{
-    display: none;
-    position: absolute;
-    right: 50px;
-    bottom: 10px;
+#static {
+  opacity: 0;
+  display: none;
 }
 
-#cameraButton1, #cameraButton2, #cameraButton3, #cameraButton4, #cameraButton5{
-    width: 120px;
-    height: 120px;
-    border: 5px solid black;
-    font-size: 40pt;
-    cursor: pointer;
-} 
-
-#cameraButton1:hover, #cameraButton2:hover, #cameraButton3:hover, #cameraButton4:hover, #cameraButton5:hover{
-   background-color: gray;
-} 
-
-#animatronik{
-    display: none;
-    position: absolute;
-    left: 35%;
-    top: 20%;
+#cameraButton {
+  display: none;
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
 }
 
-#clock{
-    position: absolute;
-    bottom: 0;
-    right: 30px;
-    color: white;
-    font-size: 30pt;
-    display: none;
+#cameraButton1,
+#cameraButton2,
+#cameraButton3,
+#cameraButton4,
+#cameraButton5 {
+  width: 120px;
+  height: 120px;
+  border: 5px solid black;
+  font-size: 40pt;
+  cursor: pointer;
 }
 
-#play{
-    position: relative;
-    margin: 0;
-    width: 310px;
-    cursor: pointer;
-    font-size: 40px;
-    bottom: 160px;
+#cameraButton1:hover,
+#cameraButton2:hover,
+#cameraButton3:hover,
+#cameraButton4:hover,
+#cameraButton5:hover {
+  background-color: gray;
 }
 
-#settings{
-    position: relative;
-    margin: 0;
-    width: 220px;
-    cursor: pointer;
-    font-size: 40px;
-    bottom: 120px;
+#animatronik {
+  display: none;
+  position: absolute;
+  left: 35%;
+  top: 20%;
 }
 
-
-#mainMenu{
-    font-size: 50pt;
-    color: white;
-    margin-left: 10%;
+#clock {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  color: white;
+  font-size: 30pt;
+  display: none;
 }
 
-#usageDisplay{
-    width: 200px;
+#play {
+  position: relative;
+  margin: 0;
+  width: 200px;
+  cursor: pointer;
+  font-size: 40px;
+  bottom: 160px;
 }
 
-#powerCounter{
-    position: absolute;
-    width: 200px;
-    bottom: 80px;
-    color: white;
+#settings {
+  position: relative;
+  margin: 0;
+  width: 160px;
+  cursor: pointer;
+  font-size: 40px;
+  bottom: 120px;
 }
 
-#power{
-    text-align: center;
-    width: 200px;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    display: none;
+#mainMenu {
+  font-size: 50pt;
+  color: white;
+  margin-left: 10%;
 }
 
-#map1, #map2, #map3, #map4, #map5{
-    display: none;
-    position: absolute;
-    right: 0;
-    bottom: 100px;
+#usageDisplay {
+  width: 200px;
+}
+
+#powerCounter {
+  position: absolute;
+  width: 200px;
+  bottom: 80px;
+  color: white;
+}
+
+#power {
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  display: none;
+}
+
+#map1,
+#map2,
+#map3,
+#map4,
+#map5 {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 100px;
 }
 
 @media all and (display-mode: fullscreen) {
-    #amogusak{
-        top: 700px;
-    }
-    #closeButton{
-        top: 470px;
-    }
-    #openButton{
-        top: 470px;
-    }
-    #closeButtonRight{
-        top: 470px;
-    }
-    #openButtonRight{
-        top: 470px;
-    }
-    #lightButton{
-        top: 260px;
-    }
-    #lightButtonBack{
-        top: 220px;
-    }
-    #moveLeft{
-        top: 240px;
-    }
-    #moveRight{
-        top: 240px;
-    }
-    #energy{
-        top: 380px;
-    }
-    #energyBack{
-        top: 380px;
-    }
-    }
+  #amogusak {
+    top: 700px;
+  }
+  #closeButton {
+    top: 470px;
+  }
+  #openButton {
+    top: 470px;
+  }
+  #closeButtonRight {
+    top: 470px;
+  }
+  #openButtonRight {
+    top: 470px;
+  }
+  #lightButton {
+    top: 260px;
+  }
+  #lightButtonBack {
+    top: 220px;
+  }
+  #moveLeft {
+    top: 240px;
+  }
+  #moveRight {
+    top: 240px;
+  }
+  #energy {
+    top: 380px;
+  }
+  #energyBack {
+    top: 380px;
+  }
+}
+
+#difficultyScrapper,
+#difficultySlaughter,
+#difficultyHangman,
+#difficultyEyes {
+  border: 10px solid white;
+  display: none;
+  padding: 70%;
+}
+
+#difficultyScrapper {
+  background-image: url(../img/Scrapper.png);
+  background-size: cover;
+}
+
+#difficultySlaughter {
+  background-image: url(../img/Slaughter.png);
+  background-size: cover;
+}
+
+#difficultyHangman {
+  background-image: url(../img/Hangman.png);
+  background-size: cover;
+}
+
+#difficultyEyes {
+  background-image: url(../img/Eyes.png);
+  background-size: cover;
+}
+
+#difficultyCounterScrapper,
+#difficultyCounterSlaughter,
+#difficultyCounterHangman,
+#difficultyCounterEyes {
+  display: none;
+  width: 100%;
+  margin-left: 25%;
+  font-size: 50pt;
+  color: white;
+}
+
+#difficultySettings {
+  display: flex;
+  position: absolute;
+  top: 30%;
+  left: -3%;
+  width: 100%;
+  justify-content: center;
+  gap: 120px;
+  font-size: 50pt;
+}
+
+.obalDiff {
+  display: block;
+  width: 10%;
+  text-align: center;
+}
+
+.decreaseDiff {
+    margin-right: 50px;
+    cursor: pointer;
+    font-size: 50pt;
+}
+
+.increaseDiff {
+    margin-left: 50px;
+    cursor: pointer;
+    font-size: 50pt;
+}
+
+.decreaseDiff,
+.increaseDiff {
+  color: white;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+#backSettings{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    cursor: pointer;
+    font-size: 50pt;
+    color: white;
+    height: 70px;
+}
+
