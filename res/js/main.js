@@ -64,6 +64,8 @@ const clock = document.getElementById("clock");
 const powerCounter = document.getElementById("powerCounter");
 const usageDisplay = document.getElementById("usageDisplay");
 const powerful = document.getElementById("power");
+
+const hangman = document.getElementById("hangman");
 //Camera popup sound
 const cameraopensound = document.getElementById("cameraopensound");
 cameraopensound.volume = 0.3;
@@ -97,6 +99,7 @@ const heartbeat = document.getElementById("heartbeat");
 const appear = document.getElementById("appear");
 //amogus
 const amogus = document.getElementById("amogus");
+const jumpscare = document.getElementById("jumpscare");
 
 let posA = 4;
 let difA = 1;
@@ -194,12 +197,71 @@ function powerEnergy() {
   camera.style.display = "none";
   energy.style.display = "none";
   energyBack.style.display = "block";
+  cameraButton.style.display = "none";
+  openButton.style.display = "none";
+  openButtonRight.style.display = "none";
+  closeButton.style.display = "none";
+  closeButtonRight.style.display = "none";
+  lightButton.style.display = "none";
+  lightButtonBack.style.display = "none";
   lDoor = 0;
   rDoor = 0;
   usage = 0;
   lightsOff = 1;
   updateUsage();
 }
+function ded(){
+  if(lightsOff == 0){
+    document.body.style.background = "url(./res/css/mainOffice.png)";
+    document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+  }
+  if(lightsOff == 1){
+    document.body.style.background = "url(./res/img/darkOffice.png)";
+    document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+  }
+  moveLeft.style.display = "none";
+  moveRight.style.display = "none";
+  cam.style.display = "none";
+  camBack.style.display = "none";
+  camera.style.display = "none";
+  energy.style.display = "none";
+  energyBack.style.display = "none";
+  cameraButton.style.display = "none";
+  openButton.style.display = "none";
+  openButtonRight.style.display = "none";
+  closeButton.style.display = "none";
+  closeButtonRight.style.display = "none";
+  lightButton.style.display = "none";
+  lightButtonBack.style.display = "none";
+  camera.style.display = "none";
+  cameraOff.style.display = "none";
+  cameraButton.style.display = "none";
+  amogusak.style.display = "none";
+  energyDown.style.display = "none";
+  clock.style.display = "none";
+  powerCounter.style.display = "none";
+  usageDisplay.style.display = "none";
+  map1.style.display = "none";
+  map2.style.display = "none";
+  map3.style.display = "none";
+  map4.style.display = "none";
+  map5.style.display = "none";
+  camera1.style.display = "none";
+  camera2.style.display = "none";
+  camera3.style.display = "none";
+  camera4.style.display = "none";
+  camera5.style.display = "none";
+  heartbeat.pause();
+
+  
+}
+
 function powerEnergyBack() {
   document.body.style.background = "url(./res/css/mainOffice.png)";
   document.body.style.backgroundRepeat = "no-repeat";
@@ -537,8 +599,23 @@ function spawnEyes() {
 
 function moveC() {
   if (posC == 0) {
-    dead = 1;
+    dead += 1;
+    if(dead == 1){
+      fnafambience.pause();
+      jumpscare.currentTime = 0.3;
+      jumpscare.play();
+    hangman.style.display = "block";
     console.log("You are fucking dead L");
+    ded();
+    setTimeout(() => {
+      hangman.style.display = "none";
+      document.body.style.background = "url(./res/img/static.gif)";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+    }, 1300);
+  }
     //Hangman jumpscare
   } else {
     if (back == 2) {
@@ -1224,6 +1301,10 @@ play.onclick = () => {
     }
   }, 1000);
   cameraOn = 0;
+
+  if(power == 0){
+    
+  }
 };
 amogusak.onclick = () => {
   amogus.play();
