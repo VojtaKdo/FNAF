@@ -24,7 +24,15 @@
     <link rel="preload" href="./res/img/camThreeScrapper.png" as="image" />
     <link rel="preload" href="./res/img/camFourScrapper.png" as="image" />
     <link rel="preload" href="./res/img/camTwoScrapper.png" as="image" />
-    <link rel="preload" href="./res/img/camTwo" as="image" />
+    <link rel="preload" href="./res/img/camTwo.png" as="image" />
+    <link rel="preload" href="./res/img/camOne.jpg" as="image" />
+    <link rel="preload" href="./res/img/camOneDoor.jpg" as="image" />
+    <link rel="preload" href="./res/img/camOneSloughter.jpg" as="image" />
+    <link rel="preload" href="./res/img/camOneSloughterDoor.jpg" as="image" />
+    <link rel="preload" href="./res/img/camFive.jpg" as="image" />
+    <link rel="preload" href="./res/img/camFiveSloughter.jpg" as="image" />
+
+
   </head>
 
   <body>
@@ -39,9 +47,10 @@
       <br />
       <br />
       <p id="play">New Game</p>
-      <p id="settings">Settings</p>
+      <p id="settings">Custom Night</p>
     </div>
       <p id="backSettings">Back</p>
+      <p id="playCustom">Play Custom Night</p>
       <div id="difficultySettings">
       <div class="obalDiff">
         <div id="difficultyScrapper"></div>
@@ -86,8 +95,11 @@
           </div>
         </div>
       </div>
-
       </div>
+    </div>
+    <div id="deathScreen">
+      <div id="death">YOU DIED</div>
+      <div id="backMenu"><a href="https://vojtakdo.github.io/FNAF/" id="text">Main Menu</a></div>
     </div>
     <!--Vojtus-->
     <div id="camera">Camera</div>
@@ -143,24 +155,37 @@
 
     <div id="hangman">
     <img src="./res/gifs/HangmanLek.gif" alt="Hang" >
-  </div>
+    </div>
+    <div id="scrapperJumpscare">
+      <img src="./res/gifs/ScrapperLek.gif" alt="Scrapper jumpscare">
+    </div>
     <!-- Michal  -->
+    <div id="turnoffmachine">   Machine off   </div>
+
+
     <audio
       src="./res/music/fnaf-open-camera-sound.mp3"
       id="cameraopensound"
     ></audio>
+    <audio
+      src="./res/music/Slaugherbotdoorsound.mp3"
+      id="slaughtermovesound"
+    ></audio>
+
     <audio src="./res/music/Main Menu.mp3" id="mainmenutheme" loop></audio>
     <audio src="./res/music/ambience.mp3" id="fnafambience" loop></audio>
     <audio src="./res/music/dooropenclose.mp3" id="doormovesound"></audio>
     <audio
       src="./res/music/squeaky_chair_sound_effect.mp3"
-      id="turnaround"
+      id="turnaround" 
     ></audio>
     <audio
       src="./res/music/squeaky_chair_sound_effect_back.mp3"
       id="turnback"
     ></audio>
+
     <audio src="./res/music/amogus.mp3" id="amogus"></audio>
+    <audio src="./res/music/fnaf-light-sound.mp3" id="button"></audio>
     <audio src="./res/music/flashlight.mp3" id="flashlight"></audio>
     <audio src="./res/music/powerDown.mp3" id="energyDown"></audio>
     <audio src="./res/music/powerUp.mp3" id="energyUp"></audio>
@@ -168,7 +193,7 @@
     <audio src="./res/music/heartbeatsound.mp3" id="heartbeat" loop></audio>
     <audio src="./res/music/appear.mp3" id="appear"></audio>
     <audio src="./res/music/jumpscare.mp3" id="jumpscare"></audio>
-
+    <audio src="./res/music/robotFootsteps.mp3" id="robotFootsteps"></audio>
     <script src="./res/js/main.js"></script>
   </body>
 </html>
