@@ -1004,14 +1004,14 @@ function cameraReload() {
         setTimeout(() => {
           if (lDoor == 1) {
             document.body.style.background =
-              "url(./res/img/camOneSloughterDoor.jpg)";
+              "url(./res/img/camOneSloughterDoor.png)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundAttachment = "fixed";
           } else if (lDoor == 0) {
             document.body.style.background =
-              "url(./res/img/camOneSloughter.jpg)";
+              "url(./res/img/camOneSloughter.png)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
             document.body.style.backgroundSize = "cover";
@@ -1021,13 +1021,13 @@ function cameraReload() {
       } else {
         setTimeout(() => {
           if (lDoor == 1) {
-            document.body.style.background = "url(./res/img/camOneDoor.jpg)";
+            document.body.style.background = "url(./res/img/camOneDoor.png)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundAttachment = "fixed";
           } else if (lDoor == 0) {
-            document.body.style.background = "url(./res/img/camOne.jpg)";
+            document.body.style.background = "url(./res/img/camOne.png)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
             document.body.style.backgroundSize = "cover";
@@ -1102,7 +1102,7 @@ function cameraReload() {
       if (posB == 5) {
         setTimeout(() => {
           document.body.style.background =
-            "url(./res/img/camFiveSloughter.jpg)";
+            "url(./res/img/camFiveSloughter.png)";
           document.body.style.backgroundRepeat = "no-repeat";
           document.body.style.backgroundPosition = "center center";
           document.body.style.backgroundSize = "cover";
@@ -1110,7 +1110,7 @@ function cameraReload() {
         }, 300);
       } else{
         setTimeout(() => {
-          document.body.style.background = "url(./res/img/camFive.jpg)";
+          document.body.style.background = "url(./res/img/camFive.png)";
           document.body.style.backgroundRepeat = "no-repeat";
           document.body.style.backgroundPosition = "center center";
           document.body.style.backgroundSize = "cover";
