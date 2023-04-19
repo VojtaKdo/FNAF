@@ -1024,13 +1024,13 @@ function cameraReload() {
             document.body.style.background = "url(./res/img/camOneDoor.jpg)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
-            document.body.style.backgroundsize = "cover";
+            document.body.style.backgroundSize = "cover";
             document.body.style.backgroundAttachment = "fixed";
           } else if (lDoor == 0) {
             document.body.style.background = "url(./res/img/camOne.jpg)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
-            document.body.style.backgroundsize = "cover";
+            document.body.style.backgroundSize = "cover";
             document.body.style.backgroundAttachment = "fixed";
           }
         }, 300);
@@ -1113,7 +1113,7 @@ function cameraReload() {
           document.body.style.background = "url(./res/img/camFive.jpg)";
           document.body.style.backgroundRepeat = "no-repeat";
           document.body.style.backgroundPosition = "center center";
-          document.body.style.backgroundsize = "cover";
+          document.body.style.backgroundSize = "cover";
           document.body.style.backgroundAttachment = "fixed";
         }, 300);
       }
