@@ -77,6 +77,8 @@ const powerful = document.getElementById("power");
 const turnoffmachine = document.getElementById("turnoffmachine");
 const hangman = document.getElementById("hangman");
 const scrapperJumpscare = document.getElementById("scrapperJumpscare");
+const Slaughterkillsound = document.getElementById("Slaughterkillsound");
+Slaughterkillsound.volume = 0.5;
 const button = document.getElementById("button");
 button.volume = 0.3;
 
@@ -310,6 +312,63 @@ function powerEnergy() {
   lightsOff = 1;
   updateUsage();
 }
+function slaugtherJumpscare() {
+  dead = 1;
+          
+          fnafambience.pause();
+          Slaughterkillsound.currentTime = 0.3;
+          Slaughterkillsound.play();  
+          document.body.style.background = "url(./res/gifs/Slaughter.gif)";
+          document.body.style.backgroundRepeat = "no-repeat";
+          document.body.style.backgroundPosition = "center center";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
+          moveLeft.style.display = "none";
+          moveRight.style.display = "none";
+          cam.style.display = "none";
+          camBack.style.display = "none";
+          camera.style.display = "none";
+          energy.style.display = "none";
+          energyBack.style.display = "none";
+          cameraButton.style.display = "none";
+          openButton.style.display = "none";
+          openButtonRight.style.display = "none";
+          closeButton.style.display = "none";
+          closeButtonRight.style.display = "none";
+          lightButton.style.display = "none";
+          lightButtonBack.style.display = "none";
+          camera.style.display = "none";
+          cameraOff.style.display = "none";
+          cameraButton.style.display = "none";
+          amogusak.style.display = "none";
+          energyDown.style.display = "none";
+          clock.style.display = "none";
+          powerCounter.style.display = "none";
+          usageDisplay.style.display = "none";
+          map1.style.display = "none";
+          map2.style.display = "none";
+          map3.style.display = "none";
+          map4.style.display = "none";
+          map5.style.display = "none";
+          camera1.style.display = "none";
+          camera2.style.display = "none";
+          camera3.style.display = "none";
+          camera4.style.display = "none";
+          camera5.style.display = "none";
+          heartbeat.pause();
+        
+          setTimeout(() => {
+            deathScreen.style.display = "flex";
+            backMenu.style.display = "flex";
+            document.body.style.background = "url(./res/img/static.gif)";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundPosition = "center center";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundAttachment = "fixed";
+          }, 1000);
+          console.log("You died to Slaughter L");
+
+}
 function ded() {
   if (lightsOff == 0) {
     document.body.style.background = "url(./res/css/mainOffice.png)";
@@ -442,21 +501,7 @@ function moveL() {
 
     if (posB == 0) {
       //jumpscare B
-      dead = 1;
-      fnafambience.pause();
-      jumpscare.currentTime = 0.3;
-      jumpscare.play();
-      ded();
-      console.log("You are fucking dead L");
-      setTimeout(() => {
-        deathScreen.style.display = "flex";
-        backMenu.style.display = "flex";
-        document.body.style.background = "url(./res/img/static.gif)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundPosition = "center center";
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundAttachment = "fixed";
-      }, 1300);
+      slaugtherJumpscare()
     }
   }
   if (loc == 4) {
@@ -847,21 +892,7 @@ function moveB() {
         posB = 0; //0=office
         if (loc == 3) {
           //jumpscare B
-          dead = 1;
-          fnafambience.pause();
-          jumpscare.currentTime = 0.3;
-          jumpscare.play();
-          ded();
-          setTimeout(() => {
-            deathScreen.style.display = "flex";
-            backMenu.style.display = "flex";
-            document.body.style.background = "url(./res/img/static.gif)";
-            document.body.style.backgroundRepeat = "no-repeat";
-            document.body.style.backgroundPosition = "center center";
-            document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundAttachment = "fixed";
-          }, 1300);
-          console.log("You are fucking dead L");
+          slaugtherJumpscare()
         }
         setTimeout(() => {
           if (dead == 0) {
@@ -869,21 +900,7 @@ function moveB() {
               cameraOn = 0;
             }
             //jumpscare B
-            dead = 1;
-            fnafambience.pause();
-            jumpscare.currentTime = 0.3;
-            jumpscare.play();
-            ded();
-            setTimeout(() => {
-              deathScreen.style.display = "flex";
-              backMenu.style.display = "flex";
-              document.body.style.background = "url(./res/img/static.gif)";
-              document.body.style.backgroundRepeat = "no-repeat";
-              document.body.style.backgroundPosition = "center center";
-              document.body.style.backgroundSize = "cover";
-              document.body.style.backgroundAttachment = "fixed";
-            }, 1300);
-            console.log("You are fucking dead L");
+            slaugtherJumpscare()
           }
         }, 3000);
       } else {
