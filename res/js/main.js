@@ -5,6 +5,7 @@ const playCustom = document.getElementById("playCustom");
 const deathScreen = document.getElementById("deathScreen");
 const death = document.getElementById("death");
 const backMenu = document.getElementById("backMenu");
+const thanks = document.getElementById("thanks");
 const difficultySettings = document.getElementById("difficultySettings");
 const difficultyScrapper = document.getElementById("difficultyScrapper");
 const difficultySlaughter = document.getElementById("difficultySlaughter");
@@ -108,6 +109,10 @@ flashlight.volume = 0.6;
 const robotFootsteps = document.getElementById("robotFootsteps");
 robotFootsteps.volume = 0.3;
 
+const sixAM = document.getElementById("sixAM");
+const sixamGIF = document.getElementById("sixamGIF");
+const sixamPNG = document.getElementById("sixamPNG");
+
 const energyDown = document.getElementById("energyDown");
 
 const energyUp = document.getElementById("energyUp");
@@ -120,6 +125,7 @@ const appear = document.getElementById("appear");
 //amogus
 const amogus = document.getElementById("amogus");
 const jumpscare = document.getElementById("jumpscare");
+const eye = document.getElementById("eye");
 
 let posA = 4;
 let difA = 1;
@@ -148,6 +154,9 @@ let counterA = 1;
 let counterB = 1;
 let counterC = 1;
 let counterD = 1;
+let antiEyes = 0;
+
+let vyhra = 0;
 
 //game systems
 
@@ -169,6 +178,7 @@ function startTime() {
     setInterval(() => {
       if (dead == 0) {
         time++;
+        changeDif();
         if (time < 6) {
           clock.innerHTML = "12:" + time + "0";
         } else if (time < 12) {
@@ -182,8 +192,12 @@ function startTime() {
         } else if (time < 36) {
           clock.innerHTML = "5:" + (time - 30) + "0";
         } else {
+          clock.innerHTML = "6:00";
           console.log("You won!!!");
           clearInterval();
+          vyhra += 1;
+          six();
+          dead += 2;
         }
       }
     }, 15000);
@@ -204,8 +218,12 @@ function startTime() {
         } else if (time < 36) {
           clock.innerHTML = "5:" + (time - 30) + "0";
         } else {
+          clock.innerHTML = "6:00";
           console.log("You won!!!");
           clearInterval();
+          vyhra += 1;
+          six();
+          dead += 2;
         }
       }
     }, 5000);
@@ -213,30 +231,30 @@ function startTime() {
 }
 function changeDif() {
   if (time == 6) {
-    difA = 5;
-    difB = 5;
-    difC = 4;
-    difD = 2;
-  } else if (time == 12) {
-    difA = 8;
-    difB = 8;
+    difA = 7;
+    difB = 7;
     difC = 6;
     difD = 3;
-  } else if (time == 18) {
+  } else if (time == 12) {
     difA = 12;
-    difB = 12;
-    difC = 10;
+    difB = 10;
+    difC = 5;
     difD = 5;
-  } else if (time == 24) {
+  } else if (time == 18) {
     difA = 15;
     difB = 15;
     difC = 14;
     difD = 7;
-  } else if (time == 30) {
+  } else if (time == 24) {
     difA = 18;
     difB = 18;
     difC = 16;
     difD = 8;
+  } else if (time == 30) {
+    difA = 20;
+    difB = 20;
+    difC = 18;
+    difD = 9;
   }
 }
 function startPower() {
@@ -253,6 +271,21 @@ function startPower() {
             powerCounter.innerHTML = power + "%";
           }
         } else {
+          loc = 4;
+          moveRight.style.display = "none";
+          moveLeft.style.display = "none";
+          cam.style.display = "none";
+          camera.style.display = "none";
+          animatronik.style.display = "none";
+          lightButton.style.display = "none";
+          closeButton.style.display = "none";
+          closeButtonRight.style.display = "none";
+          openButton.style.display = "none";
+          openButtonRight.style.display = "none";
+          amogusak.style.display = "none";
+          energy.style.display = "none";
+          document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
+          document.body.style.backgroundImage = "url(./res/css/mainOffice.png)";
           powerEnergy();
           energyDown.play();
           energyUp.pause();
@@ -275,6 +308,12 @@ function startPower() {
             powerCounter.innerHTML = power + "%";
           }
         } else {
+          loc = 3;
+          cam.style.display = "none";
+          camera.style.display = "none";
+          lightButton.style.display = "none";
+          amogusak.style.display = "none";
+          energy.style.display = "none";
           powerEnergy();
           energyDown.play();
           energyUp.pause();
@@ -314,60 +353,60 @@ function powerEnergy() {
 }
 function slaugtherJumpscare() {
   dead = 1;
-          
-          fnafambience.pause();
-          Slaughterkillsound.currentTime = 0.3;
-          Slaughterkillsound.play();  
-          document.body.style.background = "url(./res/gifs/Slaughter.gif)";
-          document.body.style.backgroundRepeat = "no-repeat";
-          document.body.style.backgroundPosition = "center center";
-          document.body.style.backgroundSize = "cover";
-          document.body.style.backgroundAttachment = "fixed";
-          moveLeft.style.display = "none";
-          moveRight.style.display = "none";
-          cam.style.display = "none";
-          camBack.style.display = "none";
-          camera.style.display = "none";
-          energy.style.display = "none";
-          energyBack.style.display = "none";
-          cameraButton.style.display = "none";
-          openButton.style.display = "none";
-          openButtonRight.style.display = "none";
-          closeButton.style.display = "none";
-          closeButtonRight.style.display = "none";
-          lightButton.style.display = "none";
-          lightButtonBack.style.display = "none";
-          camera.style.display = "none";
-          cameraOff.style.display = "none";
-          cameraButton.style.display = "none";
-          amogusak.style.display = "none";
-          energyDown.style.display = "none";
-          clock.style.display = "none";
-          powerCounter.style.display = "none";
-          usageDisplay.style.display = "none";
-          map1.style.display = "none";
-          map2.style.display = "none";
-          map3.style.display = "none";
-          map4.style.display = "none";
-          map5.style.display = "none";
-          camera1.style.display = "none";
-          camera2.style.display = "none";
-          camera3.style.display = "none";
-          camera4.style.display = "none";
-          camera5.style.display = "none";
-          heartbeat.pause();
-        
-          setTimeout(() => {
-            deathScreen.style.display = "flex";
-            backMenu.style.display = "flex";
-            document.body.style.background = "url(./res/img/static.gif)";
-            document.body.style.backgroundRepeat = "no-repeat";
-            document.body.style.backgroundPosition = "center center";
-            document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundAttachment = "fixed";
-          }, 1000);
-          console.log("You died to Slaughter L");
 
+  fnafambience.pause();
+  Slaughterkillsound.currentTime = 0.3;
+  Slaughterkillsound.play();
+  document.body.style.background = "url(./res/gifs/Slaughter.gif)";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center center";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "fixed";
+  moveLeft.style.display = "none";
+  moveRight.style.display = "none";
+  cam.style.display = "none";
+  camBack.style.display = "none";
+  camera.style.display = "none";
+  energy.style.display = "none";
+  energyBack.style.display = "none";
+  cameraButton.style.display = "none";
+  openButton.style.display = "none";
+  openButtonRight.style.display = "none";
+  closeButton.style.display = "none";
+  closeButtonRight.style.display = "none";
+  lightButton.style.display = "none";
+  lightButtonBack.style.display = "none";
+  camera.style.display = "none";
+  cameraOff.style.display = "none";
+  cameraButton.style.display = "none";
+  amogusak.style.display = "none";
+  energyDown.style.display = "none";
+  clock.style.display = "none";
+  powerCounter.style.display = "none";
+  usageDisplay.style.display = "none";
+  map1.style.display = "none";
+  map2.style.display = "none";
+  map3.style.display = "none";
+  map4.style.display = "none";
+  map5.style.display = "none";
+  camera1.style.display = "none";
+  camera2.style.display = "none";
+  camera3.style.display = "none";
+  camera4.style.display = "none";
+  camera5.style.display = "none";
+  heartbeat.pause();
+  turnoffmachine.style.display = "none";
+
+  setTimeout(() => {
+    deathScreen.style.display = "flex";
+    backMenu.style.display = "flex";
+    document.body.style.background = "url(./res/img/static.gif)";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
+  }, 1000);
+  console.log("You died to Slaughter L");
 }
 function ded() {
   if (lightsOff == 0) {
@@ -416,7 +455,73 @@ function ded() {
   camera3.style.display = "none";
   camera4.style.display = "none";
   camera5.style.display = "none";
+  turnoffmachine.style.display = "none";
   heartbeat.pause();
+}
+
+function six() {
+  if (vyhra == 1) {
+    moveLeft.style.display = "none";
+    moveRight.style.display = "none";
+    cam.style.display = "none";
+    camBack.style.display = "none";
+    camera.style.display = "none";
+    energy.style.display = "none";
+    energyBack.style.display = "none";
+    cameraButton.style.display = "none";
+    openButton.style.display = "none";
+    openButtonRight.style.display = "none";
+    closeButton.style.display = "none";
+    closeButtonRight.style.display = "none";
+    lightButton.style.display = "none";
+    lightButtonBack.style.display = "none";
+    camera.style.display = "none";
+    cameraOff.style.display = "none";
+    cameraButton.style.display = "none";
+    amogusak.style.display = "none";
+    energyDown.style.display = "none";
+    clock.style.display = "none";
+    powerCounter.style.display = "none";
+    usageDisplay.style.display = "none";
+    map1.style.display = "none";
+    map2.style.display = "none";
+    map3.style.display = "none";
+    map4.style.display = "none";
+    map5.style.display = "none";
+    camera1.style.display = "none";
+    camera2.style.display = "none";
+    camera3.style.display = "none";
+    camera4.style.display = "none";
+    camera5.style.display = "none";
+    backMenu.style.display = "block";
+    document.body.style.background = "url(./res/gifs/6am.gif)";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
+    setTimeout(() => {
+      document.body.style.background = "url(./res/img/6am.png)";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "center center";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundAttachment = "fixed";
+      backMenu.style.opacity = "0";
+      backMenu.style.display = "block";
+      backMenu.style.transition = "2s";
+      backMenu.style.top = "60%";
+      deathScreen.style.display = "block";
+      death.style.display = "none";
+      thanks.style.display = "block";
+      setTimeout(() => {
+        backMenu.style.opacity = "1";
+        thanks.style.opacity = "1";
+      }, 1000);
+    }, 5000);
+    heartbeat.pause();
+    fnafambience.pause;
+    sixAM.play();
+    fnafambience.pause();
+  }
 }
 
 function powerEnergyBack() {
@@ -463,6 +568,10 @@ energyBack.onclick = () => {
 let loc = 4;
 let back = 3;
 
+//loc 3 = vlevo
+//loc 4 = Office
+//loc 5 = vpravo
+
 //Pohyd doleva
 function moveL() {
   loc--;
@@ -501,7 +610,7 @@ function moveL() {
 
     if (posB == 0) {
       //jumpscare B
-      slaugtherJumpscare()
+      slaugtherJumpscare();
     }
   }
   if (loc == 4) {
@@ -669,14 +778,14 @@ camBack.onmousedown = () => {
 };
 
 //animatronic movement
-let thomas = 0; //1= turning on, 2=on
+let thomas = 0; //1=on
 
 let mathC = 0;
 function moveCmath() {
   random = Math.random();
   mathC = 100000 / ((random / 1.1) * difC);
-  if (mathC > 220000 / difC) {
-    mathC = 220000 / difC;
+  if (mathC > 160000 / difC) {
+    mathC = 160000 / difC;
   }
   console.log("C timer: " + mathC);
   moveCtimeout(mathC);
@@ -694,19 +803,19 @@ function moveCtimeout(timeout) {
 
 let mathB = 0;
 function moveBmath() {
-  if (thomas == 2) {
+  if (thomas == 1) {
     random = Math.random();
-    mathB = 33000 / ((random / 1.3) * (2 * difB));
-    if (mathB > 85800 / difB) {
-      mathB = 85800 / difB;
+    mathB = 16500 / ((random / 1.3) * difB);
+    if (mathB > 29700 / difB) {
+      mathB = 29700 / difB;
     }
     console.log("B timer: " + mathB);
     moveBtimeout(mathB);
   } else {
     random = Math.random();
-    mathB = 100000 / ((random / 1.3) * (2 * difB));
-    if (mathB > 520000 / difB) {
-      mathB = 520000 / difB;
+    mathB = 50000 / ((random / 1.3) * difB);
+    if (mathB > 90000 / difB) {
+      mathB = 90000 / difB;
     }
     console.log("B timer: " + mathB);
     moveBtimeout(mathB);
@@ -717,7 +826,7 @@ function moveBtimeout(timeout) {
   if (dead == 0) {
     movementB = setTimeout(() => {
       moveB();
-      
+
       console.log("B moved to " + posB);
       cameraReload();
       moveBmath();
@@ -727,7 +836,7 @@ function moveBtimeout(timeout) {
 
 function machineBmath() {
   random = Math.random();
-  mathThomas = 10000 / ((random / 1.5) * (2 * difB));
+  mathThomas = 100000 / ((random / 1.5) * (2 * difB));
   console.log("Machine timer: " + mathThomas);
   thomasTimeout(mathThomas);
 }
@@ -736,34 +845,30 @@ function thomasTimeout(timeout) {
   if (dead == 0) {
     movemenThomas = setTimeout(() => {
       slaughtermovesound.play();
-      turnoffmachine.style.backgroundColor = ("green");
-      turnoffmachine.innerHTML = ("Machine is on");
+      turnoffmachine.style.backgroundColor = "green";
+      turnoffmachine.innerHTML = "Machine is on";
       console.log("Machine is on!");
       thomas = 1;
-      setTimeout(() => {
-        if (thomas == 0) {
-          thomas = 2;
-        }
-      }, 10000);
     }, timeout);
   }
 }
 
 turnoffmachine.onclick = () => {
   if ((thomas = 1)) {
-    turnoffmachine.style.backgroundColor = ("red");
-    turnoffmachine.innerHTML = ("Machine off");
-    button.play();;
+    turnoffmachine.style.backgroundColor = "red";
+    turnoffmachine.innerHTML = "Machine off";
+    button.play();
     thomas = 0;
+    machineBmath();
   }
 };
 
 let mathA = 0;
 function moveAmath() {
   random = Math.random();
-  mathA = 100000 / (random * (difA * 2));
-  if (mathA > 400000 / difA) {
-    mathA = 400000 / difA;
+  mathA = 50000 / (random * difA);
+  if (mathA > 75000 / difA) {
+    mathA = 75000 / difA;
   }
   console.log("A timer: " + mathA);
   moveAtimeout(mathA);
@@ -782,62 +887,99 @@ function moveAtimeout(timeout) {
 
 function spawnEyes() {
   if (dead == 0) {
-    console.log("Eyes has spawned!");
-    eyesSound.play();
-    movementD = setTimeout(() => {
-      if (lightsOff == 0) {
-        dead = 1;
-        fnafambience.pause();
-        jumpscare.currentTime = 0.3;
-        jumpscare.play();
-        ded();
-        console.log("You fucking died L");
-        setTimeout(() => {
-          deathScreen.style.display = "flex";
-          backMenu.style.display = "flex";
-          document.body.style.background = "url(./res/img/static.gif)";
-          document.body.style.backgroundRepeat = "no-repeat";
-          document.body.style.backgroundPosition = "center center";
-          document.body.style.backgroundSize = "cover";
-          document.body.style.backgroundAttachment = "fixed";
-        }, 1300);
-        //Eyes jumpscare
-      } else {
-        heartbeat.play();
-        heartbeat.volume = 0.3;
-        document.body.style.background = "url(./res/img/darkOfficeEyes.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundPosition = "center center";
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundAttachment = "fixed";
-        setTimeout(() => {
-          if (lightsOff == 0) {
-            dead = 1;
+    if (antiEyes == 0) {
+      antiEyes = 1;
+      console.log("Eyes has spawned!");
+      eyesSound.play();
+      movementD = setTimeout(() => {
+        if (lightsOff == 0) {
+          dead += 1;
+          fnafambience.pause();
+          Slaughterkillsound.play();
+          ded();
+          if (dead == 1) {
             fnafambience.pause();
-            jumpscare.currentTime = 0.3;
+            jumpscare.currentTime = 0.6;
             jumpscare.play();
-            console.log("You fucking died L");
+            eye.style.display = "block";
+            console.log("You are fucking dead L");
             ded();
-            //Eyes jumpscare
             setTimeout(() => {
-              backMenu.style.display = "flex";
-              deathScreen.style.display = "flex";
+              eye.style.display = "none";
               document.body.style.background = "url(./res/img/static.gif)";
               document.body.style.backgroundRepeat = "no-repeat";
               document.body.style.backgroundPosition = "center center";
               document.body.style.backgroundSize = "cover";
               document.body.style.backgroundAttachment = "fixed";
-            }, 1300);
-          } else {
-            document.body.style.background = "url(./res/img/darkOffice.png)";
+              deathScreen.style.display = "flex";
+              backMenu.style.display = "flex";
+            }, 700);
+          }
+          setTimeout(() => {
+            eye.style.display = "none";
+            deathScreen.style.display = "flex";
+            backMenu.style.display = "flex";
+            document.body.style.background = "url(./res/img/static.gif)";
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundPosition = "center center";
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundAttachment = "fixed";
-          }
-        }, 500);
-      }
-    }, 5000);
+          }, 700);
+          //Eyes jumpscare
+        } else {
+          heartbeat.play();
+          heartbeat.volume = 0.3;
+          document.body.style.background = "url(./res/img/darkOfficeEyes.png)";
+          document.body.style.backgroundRepeat = "no-repeat";
+          document.body.style.backgroundPosition = "center center";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
+          setTimeout(() => {
+            if (lightsOff == 0) {
+              fnafambience.pause();
+              jumpscare.currentTime = 0.3;
+              jumpscare.play();
+              ded();
+              dead += 1;
+              if (dead == 1) {
+                fnafambience.pause();
+                Slaughterkillsound.play();
+                eye.style.display = "block";
+                document.body.style.background =
+                console.log("You are fucking dead L");
+                setTimeout(() => {
+                  document.body.style.background = "url(./res/img/static.gif)";
+                  document.body.style.backgroundRepeat = "no-repeat";
+                  document.body.style.backgroundPosition = "center center";
+                  document.body.style.backgroundSize = "cover";
+                  document.body.style.backgroundAttachment = "fixed";
+                  deathScreen.style.display = "flex";
+                  backMenu.style.display = "flex";
+                  eye.style.display = "none";
+                }, 700);
+              }
+              setTimeout(() => {
+                backMenu.style.display = "flex";
+                deathScreen.style.display = "flex";
+                document.body.style.background = "url(./res/img/static.gif)";
+                document.body.style.backgroundRepeat = "no-repeat";
+                document.body.style.backgroundPosition = "center center";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                eye.style.display = "none";
+              }, 700);
+            } else {
+              antiEyes = 0;
+              document.body.style.background = "url(./res/img/darkOffice.png)";
+              document.body.style.backgroundRepeat = "no-repeat";
+              document.body.style.backgroundPosition = "center center";
+              document.body.style.backgroundSize = "cover";
+              document.body.style.backgroundAttachment = "fixed";
+            }
+          }, 500);
+        }
+      }, 5000);
+    }
   }
 }
 
@@ -892,7 +1034,7 @@ function moveB() {
         posB = 0; //0=office
         if (loc == 3) {
           //jumpscare B
-          slaugtherJumpscare()
+          slaugtherJumpscare();
         }
         setTimeout(() => {
           if (dead == 0) {
@@ -900,7 +1042,7 @@ function moveB() {
               cameraOn = 0;
             }
             //jumpscare B
-            slaugtherJumpscare()
+            slaugtherJumpscare();
           }
         }, 3000);
       } else {
@@ -931,15 +1073,15 @@ function moveA() {
     }
   } else if (posA == 2) {
     random = Math.random();
-    if (random >= 0.15) {
-      posA = 0.3;
-    } else {
+    if (random <= 0.15) {
       posA = 3;
+    } else {
+      posA = 0.3;
     }
   } else if (posA == 0.3) {
     if (random <= 0.1) {
       posA = 3;
-    } else if (random <= 0.3) {
+    } else if (random <= 0.2) {
       posA = 2;
     } else {
       posA = 0.2; //0.2=right door
@@ -996,17 +1138,17 @@ function moveA() {
           console.log("You are fucking dead L");
         }
       }, 3000);
-    }
-  } else {
-    robotFootsteps.play();
-    robotFootsteps.currentTime = 0;
-    random = Math.random();
-    if (random <= 0.25) {
-      posA = 3;
-    } else if (random <= 0.6) {
-      posA = 2;
     } else {
-      posA = 0.3;
+      robotFootsteps.play();
+      robotFootsteps.currentTime = 0;
+      random = Math.random();
+      if (random <= 0.35) {
+        posA = 3;
+      } else if (random <= 0.7) {
+        posA = 2;
+      } else {
+        posA = 0.3;
+      }
     }
   }
 }
@@ -1125,7 +1267,7 @@ function cameraReload() {
           document.body.style.backgroundSize = "cover";
           document.body.style.backgroundAttachment = "fixed";
         }, 300);
-      } else{
+      } else {
         setTimeout(() => {
           document.body.style.background = "url(./res/img/camFive.png)";
           document.body.style.backgroundRepeat = "no-repeat";
@@ -1773,7 +1915,7 @@ backSettings.onclick = () => {
   difficultyCounterEyes.style.display = "none";
   backSettings.style.display = "none";
   playCustom.style.display = "none";
-  document.body.style.background = "url(./res/img/staticMenu.gif)";
+  document.body.style.background = "url(./res/gifs/mainMenuStatic.gif)";
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundPosition = "center center";
   document.body.style.backgroundSize = "cover";
@@ -1841,5 +1983,3 @@ playCustom.onclick = () => {
   }, 1000);
   cameraOn = 0;
 };
-
-

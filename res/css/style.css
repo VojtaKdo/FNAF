@@ -7,7 +7,7 @@
   transition: 0.1s;
 }
 body {
-  background-image: url(../img/staticMenu.gif);
+  background-image: url(../gifs/mainMenuStatic.gif);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -457,6 +457,14 @@ body {
   display: none;
 }
 
+#eye{
+  position: absolute;
+  max-width: max-content;
+  max-height: max-content;
+  width: 100%;
+  height: 100%;
+
+}
 
 #turnoffmachine {
   text-align: center;
@@ -510,11 +518,35 @@ body {
   cursor: pointer;
   width: 25%;
   position: absolute;
-  top: 40%;
+  top: 52%;
   left: 37.5%;
   right: 37.5%;
 }
 #text {
   color: white;
   text-decoration: none;
+}
+
+#sixamPNG{
+  display: none;
+}
+
+#sixamGIF{
+  display: none;
+}
+
+#thanks{
+  color: white;
+  font-size: 90pt;
+  text-align: center;
+  margin-top: 5%;
+  opacity: 0;
+  transition: 2s;
+  display: none;
+}
+
+#eye{
+  display: none;
+  width: 100%;
+  left: 5%;
 }
