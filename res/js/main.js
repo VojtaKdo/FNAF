@@ -707,7 +707,7 @@ function thomasTimeout(timeout) {
 turnoffmachine.onclick = () => {
   if ((thomas = 1)) {
     turnoffmachine.style.backgroundColor = ("red");
-    turnoffmachine.innerHTML = ("Machine is off");
+    turnoffmachine.innerHTML = ("Machine off");
     button.play();;
     thomas = 0;
   }
